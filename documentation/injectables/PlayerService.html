@@ -138,6 +138,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Serviço responsável pela gestão dos jogadores.
+Inclui métodos para obter, atualizar, excluir e realizar outras ações relacionadas aos jogadores.</p>
+
+            </p>
 
 
 
@@ -240,14 +248,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="34"
-                                    class="link-to-prism">src/app/services/player.service.ts:34</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="73"
+                                    class="link-to-prism">src/app/services/player.service.ts:73</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Exclui um jogador com base no seu ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -258,6 +268,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -272,6 +283,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID do jogador a ser excluído.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -281,7 +296,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable vazio após a exclusão.</p>
+
                             </div>
                 </td>
             </tr>
@@ -307,19 +323,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">src/app/services/player.service.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/services/player.service.ts:54</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Obtém o perfil do jogador autenticado.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="../interfaces/PlayerDetails.html" target="_self" >Observable&lt;PlayerDetails&gt;</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Um Observable que contém os detalhes do perfil do jogador.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -344,14 +366,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="22"
-                                    class="link-to-prism">src/app/services/player.service.ts:22</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/services/player.service.ts:46</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Obtém os detalhes de um jogador pelo seu ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -362,6 +386,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -376,6 +401,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID do jogador.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -385,7 +414,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable que contém os detalhes completos do jogador.</p>
+
                             </div>
                 </td>
             </tr>
@@ -411,19 +441,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="18"
-                                    class="link-to-prism">src/app/services/player.service.ts:18</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/services/player.service.ts:37</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Obtém a lista de jogadores.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="../interfaces/PlayerListItem.html" target="_self" >Observable&lt;PlayerListItem[]&gt;</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Um Observable que contém uma lista de objetos <code>PlayerListItem</code> com informações resumidas dos jogadores.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -448,14 +484,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="38"
-                                    class="link-to-prism">src/app/services/player.service.ts:38</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/app/services/player.service.ts:82</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Permite que o jogador deixe a equipa atual.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -466,6 +504,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -480,6 +519,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID do jogador que deseja deixar a equipa.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -489,7 +532,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable vazio após o jogador ter deixado a equipa.</p>
+
                             </div>
                 </td>
             </tr>
@@ -517,8 +561,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="47"
-                                    class="link-to-prism">src/app/services/player.service.ts:47</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/services/player.service.ts:91</a></div>
                         </td>
                     </tr>
 
@@ -585,14 +629,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="30"
-                                    class="link-to-prism">src/app/services/player.service.ts:30</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/services/player.service.ts:64</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Atualiza os dados de um jogador.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -603,6 +649,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -617,6 +664,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID do jogador.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>data</td>
@@ -629,6 +680,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Os dados a serem atualizados do jogador, incluindo nome, endereço, etc.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -638,7 +693,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable vazio após a atualização.</p>
+
                             </div>
                 </td>
             </tr>
@@ -676,10 +732,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/player.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/services/player.service.ts:26</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL base para requisições relacionadas aos jogadores.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -709,10 +771,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/player.service.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/services/player.service.ts:31</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cabeçalhos para as requisições HTTP, especificando o tipo de conteúdo como JSON.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -742,10 +810,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/player.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/services/player.service.ts:21</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Serviço HTTP utilizado para realizar requisições à API.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -763,35 +837,79 @@ import { environment } from &#x27;../environments/environment&#x27;;
 import { PlayerListItem } from &#x27;../shared/Dtos/player-list-item.model&#x27;;
 import { FilterListTeamDto } from &#x27;../shared/Dtos/Filters/FilterListTeamDto&#x27;;
 
+/**
+ * Serviço responsável pela gestão dos jogadores.
+ * Inclui métodos para obter, atualizar, excluir e realizar outras ações relacionadas aos jogadores.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class PlayerService {
+  
+  /**
+   * Serviço HTTP utilizado para realizar requisições à API.
+   */
   private readonly http &#x3D; inject(HttpClient);
+
+  /**
+   * URL base para requisições relacionadas aos jogadores.
+   */
   private readonly baseUrl &#x3D; &#x60;${environment.apiBaseUrl}/Player&#x60;;
 
+  /**
+   * Cabeçalhos para as requisições HTTP, especificando o tipo de conteúdo como JSON.
+   */
   private readonly headers &#x3D; { &#x27;Content-Type&#x27;: &#x27;application/json&#x27; };
 
+  /**
+   * Obtém a lista de jogadores.
+   * @returns Um Observable que contém uma lista de objetos &#x60;PlayerListItem&#x60; com informações resumidas dos jogadores.
+   */
   getPlayers(): Observable&lt;PlayerListItem[]&gt; {
     return this.http.get&lt;PlayerListItem[]&gt;(&#x60;${this.baseUrl}/listPlayers&#x60;);
   }
 
+  /**
+   * Obtém os detalhes de um jogador pelo seu ID.
+   * @param playerId O ID do jogador.
+   * @returns Um Observable que contém os detalhes completos do jogador.
+   */
   getPlayerById(playerId: string): Observable&lt;PlayerDetails&gt; {
     return this.http.get&lt;PlayerDetails&gt;(&#x60;${this.baseUrl}/details/${playerId}&#x60;);
   }
 
+  /**
+   * Obtém o perfil do jogador autenticado.
+   * @returns Um Observable que contém os detalhes do perfil do jogador.
+   */
   getMyProfile(): Observable&lt;PlayerDetails&gt; {
     return this.http.get&lt;PlayerDetails&gt;(&#x60;${this.baseUrl}/get-my-profile&#x60;);
   }
 
+  /**
+   * Atualiza os dados de um jogador.
+   * @param playerId O ID do jogador.
+   * @param data Os dados a serem atualizados do jogador, incluindo nome, endereço, etc.
+   * @returns Um Observable vazio após a atualização.
+   */
   updatePlayer(playerId: string, data: UpdatePlayerRequest): Observable&lt;void&gt; {
     return this.http.put&lt;void&gt;(&#x60;${this.baseUrl}/update/${playerId}&#x60;, data, { headers: this.headers });
   }
 
+  /**
+   * Exclui um jogador com base no seu ID.
+   * @param playerId O ID do jogador a ser excluído.
+   * @returns Um Observable vazio após a exclusão.
+   */
   deletePlayer(playerId: string): Observable&lt;void&gt; {
     return this.http.delete&lt;void&gt;(&#x60;${this.baseUrl}/${playerId}&#x60;);
   }
 
+  /**
+   * Permite que o jogador deixe a equipa atual.
+   * @param playerId O ID do jogador que deseja deixar a equipa.
+   * @returns Um Observable vazio após o jogador ter deixado a equipa.
+   */
   leaveTeam(playerId: string): Observable&lt;void&gt; {
     return this.http.put&lt;void&gt;(&#x60;${this.baseUrl}/${playerId}/leave-team&#x60;, {});
   }

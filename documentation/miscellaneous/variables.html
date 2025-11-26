@@ -181,10 +181,37 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
   providers: [
+    /**
+     * Provedor que adiciona ouvintes de erros globais do navegador.
+     * Ajuda a capturar e lidar com erros globais que não são tratados em outros lugares.
+     */
     provideBrowserGlobalErrorListeners(),
+
+    /**
+     * Provedor que configura a detecção de mudanças sem zona.
+     * Permite que a detecção de mudanças no Angular ocorra sem o uso da zona de execução,
+     * o que pode melhorar a performance em certos cenários.
+     */
     provideZonelessChangeDetection(),
+
+    /**
+     * Provedor que configura o routing da aplicação, utilizando as rotas definidas em &#x60;app.routes&#x60;.
+     * Fornece a configuração de navegação para a aplicação.
+     */
     provideRouter(routes),
+
+    /**
+     * Provedor para a hidratação do cliente, com replay de eventos.
+     * Hidratação é um processo usado para restaurar o estado da aplicação no cliente, 
+     * e &#x60;withEventReplay&#x60; garante que os eventos de navegação sejam processados corretamente.
+     */
     provideClientHydration(withEventReplay()),
+
+    /**
+     * Provedor do cliente HTTP, configurando interceptadores para as requisições HTTP.
+     * O &#x60;withInterceptorsFromDi()&#x60; usa os interceptadores registados na DI, 
+     * enquanto o &#x60;withInterceptors([authInterceptor])&#x60; adiciona um interceptador de autenticação.
+     */
     provideHttpClient(
       withInterceptorsFromDi(),
       withInterceptors([authInterceptor]),
@@ -194,6 +221,14 @@
                     </td>
                 </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Configuração principal da aplicação Angular.
+Inclui todos os provedores necessários para a inicialização da aplicação, 
+incluindo interceptadores, routing, tratamento de erros globais e mais.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -266,12 +301,29 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
+  
+  /**
+   * Define se o ambiente é de produção ou desenvolvimento.
+   * Neste caso, está definido como &#x60;false&#x60;, indicando que é o ambiente de desenvolvimento.
+   */
   production: false,
+
+  /**
+   * A URL base para a API do backend.
+   * A URL foi configurada para um servidor local durante o desenvolvimento.
+   */
   apiBaseUrl: &#x27;http://localhost:5218/api&#x27;,
 }</code>
                     </td>
                 </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Ambiente de configuração para o desenvolvimento.
+Define variáveis específicas para o ambiente de desenvolvimento, como o estado de produção e a URL da API.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -298,12 +350,29 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
+  
+  /**
+   * Define se o ambiente é de produção ou desenvolvimento.
+   * Neste caso, está definido como &#x60;true&#x60;, indicando que é o ambiente de produção.
+   */
   production: true,
+
+  /**
+   * A URL base para a API do backend.
+   * A URL foi configurada para um servidor local durante a produção.
+   */
   apiBaseUrl: &#x27;http://localhost:5218/api&#x27;,
 }</code>
                     </td>
                 </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Ambiente de configuração para a produção.
+Define variáveis específicas para o ambiente de produção, como o estado de produção e a URL da API.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -338,6 +407,13 @@
                     </td>
                 </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mapeamento dos valores numéricos para as posições de jogador.
+Utilizado para converter um valor numérico em seu nome correspondente de posição.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -372,6 +448,13 @@
                     </td>
                 </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mapeamento das posições de jogador para valores numéricos.
+Utilizado para converter o nome da posição em um valor numérico correspondente.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -398,24 +481,47 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
-  { path: &#x27;&#x27;, component: Home},
-  { path: &#x27;teams&#x27;, component: Teams, canActivate: [AuthGuard]},
-  { path: &#x27;teams/:searchTerm&#x27;, component: Teams, canActivate: [AuthGuard]},
-  //{ path: &#x27;team/:teamId&#x27;, component: TeamProfile, canActivate: [AuthGuard]}, /* cena de is admin aq tb */
-  { path: &#x27;team/membership-requests&#x27;, component: TeamMembershipRequestsPageComponent, canActivate: [AuthGuard], /*data: { requiresTeam: true },*/},
+  // Página inicial
+  { path: &#x27;&#x27;, component: Home },
+
+  // Páginas relacionadas às equipas, com proteção de acesso autenticado
+  { path: &#x27;teams&#x27;, component: Teams, canActivate: [AuthGuard] },
+  { path: &#x27;teams/:searchTerm&#x27;, component: Teams, canActivate: [AuthGuard] },
+  { path: &#x27;team/:teamId&#x27;, component: TeamProfile, canActivate: [AuthGuard] },
+  { path: &#x27;team/membership-requests&#x27;, component: TeamMembershipRequestsPageComponent, canActivate: [AuthGuard] },
+  { path: &#x27;createTeam&#x27;, component: CreateTeam, canActivate: [AuthGuard] },
+
+  // Páginas de registo e login
   { path: &#x27;signup&#x27;, component: SignupComponent },
   { path: &#x27;login&#x27;, component: LoginComponent },
-  { path: &#x27;logout&#x27;, component: LogoutComponent, canActivate: [AuthGuard]},
-  { path: &#x27;players&#x27;, component: PlayerListPageComponent, canActivate: [AuthGuard], /*data: { isAdmin: true }*/ },
-  { path: &#x27;players/me&#x27;, component: PlayerProfileRedirectComponent, canActivate: [AuthGuard]},
-  { path: &#x27;players/details/:playerId&#x27;, component: PlayerProfilePageComponent, canActivate: [AuthGuard]},
-  { path: &#x27;players/membership-requests&#x27;, component: PlayerMembershipRequestsPageComponent, canActivate: [AuthGuard], data: { requiresTeam: false },},
-  { path: &#x27;settings&#x27;, component: SettingsPageComponent},
-  { path: &#x27;**&#x27;, redirectTo: &#x27;players&#x27;},
+  
+  // Logout (proteção de acesso com AuthGuard)
+  { path: &#x27;logout&#x27;, component: LogoutComponent, canActivate: [AuthGuard] },
+
+  // Páginas relacionadas aos jogadores
+  { path: &#x27;players&#x27;, component: PlayerListPageComponent, canActivate: [AuthGuard] },
+  { path: &#x27;players/me&#x27;, component: PlayerProfileRedirectComponent, canActivate: [AuthGuard] },
+  { path: &#x27;players/details/:playerId&#x27;, component: PlayerProfilePageComponent, canActivate: [AuthGuard] },
+
+  // Página de pedidos de adesão de jogadores
+  { path: &#x27;players/membership-requests&#x27;, component: PlayerMembershipRequestsPageComponent, canActivate: [AuthGuard], data: { requiresTeam: false } },
+
+  // Página de definições do utilizador
+  { path: &#x27;settings&#x27;, component: SettingsPageComponent },
+
+  // Redirecionamento para a página de jogadores em caso de rota inválida
+  { path: &#x27;**&#x27;, redirectTo: &#x27;players&#x27; },
 ]</code>
                     </td>
                 </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Configuração de rotas da aplicação.
+Define as rotas e os componentes associados, incluindo proteção com guardas de autenticação e permissões.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>

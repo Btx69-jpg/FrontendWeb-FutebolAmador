@@ -138,6 +138,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Serviço responsável pela autenticação e gestão de sessões do utilizador.
+Realiza login, registo, decodificação de token, verificação de permissões, entre outras funções relacionadas.</p>
+
+            </p>
 
 
 
@@ -247,19 +255,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">src/app/services/auth.service.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/services/auth.service.ts:59</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Decodifica o token de acesso JWT e retorna o seu conteúdo.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>O conteúdo do token decodificado ou <code>null</code> se o token não existir.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -284,19 +298,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="18"
-                                    class="link-to-prism">src/app/services/auth.service.ts:18</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/services/auth.service.ts:43</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Obtém o ID do jogador atual armazenado nos cookies.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>string | null</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>O ID do jogador ou <code>null</code> se não encontrado.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -321,19 +341,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="83"
-                                    class="link-to-prism">src/app/services/auth.service.ts:83</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="152"
+                                    class="link-to-prism">src/app/services/auth.service.ts:152</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Obtém o ID da equipa do jogador atual.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>Observable&lt;string | null&gt;</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Um Observable com o ID da equipa do jogador ou <code>null</code> se não houver equipa associada.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -358,14 +384,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="79"
-                                    class="link-to-prism">src/app/services/auth.service.ts:79</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="144"
+                                    class="link-to-prism">src/app/services/auth.service.ts:144</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Obtém os dados detalhados de um jogador pelo seu ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -376,6 +404,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -390,16 +419,21 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>ID do jogador.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                            <b>Returns : </b>        <code><a href="../interfaces/PlayerDetails.html" target="_self" >Observable&lt;PlayerDetails&gt;</a></code>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable com os detalhes do jogador.</p>
+
                             </div>
                 </td>
             </tr>
@@ -425,19 +459,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="14"
-                                    class="link-to-prism">src/app/services/auth.service.ts:14</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/services/auth.service.ts:35</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Obtém o token de acesso armazenado nos cookies.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>string | null</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>O token de acesso ou <code>null</code> se não encontrado.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -462,19 +502,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="39"
-                                    class="link-to-prism">src/app/services/auth.service.ts:39</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/services/auth.service.ts:80</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Verifica se o utilizador está associado a uma equipa.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p><code>true</code> se o utilizador tiver uma equipa associada, caso contrário <code>false</code>.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -499,19 +545,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="34"
-                                    class="link-to-prism">src/app/services/auth.service.ts:34</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/services/auth.service.ts:71</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Verifica se o utilizador tem permissões de administrador.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p><code>true</code> se o utilizador for administrador, caso contrário <code>false</code>.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -536,19 +588,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="22"
-                                    class="link-to-prism">src/app/services/auth.service.ts:22</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/services/auth.service.ts:51</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Verifica se o utilizador está autenticado (se existe um token de acesso válido).</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p><code>true</code> se o utilizador estiver autenticado, caso contrário <code>false</code>.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -573,14 +631,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="44"
-                                    class="link-to-prism">src/app/services/auth.service.ts:44</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/app/services/auth.service.ts:92</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Realiza o login do utilizador utilizando email e senha.
+Se o login for bem-sucedido, os cookies de acesso e ID do utilizador são configurados.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -591,6 +652,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -605,6 +667,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O email do utilizador.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>password</td>
@@ -617,6 +683,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>A senha do utilizador.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -626,7 +696,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable com a resposta da API.</p>
+
                             </div>
                 </td>
             </tr>
@@ -652,14 +723,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="55"
-                                    class="link-to-prism">src/app/services/auth.service.ts:55</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/services/auth.service.ts:115</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Realiza o registo de um novo jogador.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -670,6 +743,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -684,6 +758,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Nome do jogador.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>email</td>
@@ -696,6 +774,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Email do jogador.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>password</td>
@@ -708,6 +790,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Senha do jogador.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>dateOfBirth</td>
@@ -720,6 +806,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Data de nascimento do jogador.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>address</td>
@@ -732,6 +822,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Endereço do jogador.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>phone</td>
@@ -744,6 +838,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Número de telefone do jogador.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>position</td>
@@ -756,6 +854,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Posição do jogador.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>height</td>
@@ -768,6 +870,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Altura do jogador.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -777,7 +883,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable com a resposta da API ou erro.</p>
+
                             </div>
                 </td>
             </tr>
@@ -815,10 +922,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/auth.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/services/auth.service.ts:24</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL base da API, definida a partir das configurações do ambiente.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -847,10 +960,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/auth.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/services/auth.service.ts:29</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Serviço para manipulação de cookies.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -880,10 +999,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/auth.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/auth.service.ts:19</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Serviço HTTP utilizado para realizar requisições à API.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -899,25 +1024,58 @@ import { catchError, map, Observable, of, throwError } from &#x27;rxjs&#x27;;
 import { environment } from &#x27;../environments/environment&#x27;;
 import { jwtDecode } from &#x27;jwt-decode&#x27;;
 import { CookieService } from &#x27;ngx-cookie-service&#x27;;
+import { PlayerDetails } from &#x27;../shared/Dtos/player.model&#x27;;
 
+/**
+ * Serviço responsável pela autenticação e gestão de sessões do utilizador.
+ * Realiza login, registo, decodificação de token, verificação de permissões, entre outras funções relacionadas.
+ */
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class AuthService {
+  
+  /**
+   * Serviço HTTP utilizado para realizar requisições à API.
+   */
   private readonly http &#x3D; inject(HttpClient);
+
+  /**
+   * URL base da API, definida a partir das configurações do ambiente.
+   */
   private readonly baseUrl &#x3D; &#x60;${environment.apiBaseUrl}&#x60;;
+
+  /**
+   * Serviço para manipulação de cookies.
+   */
   private cookieService &#x3D; inject(CookieService);
 
+  /**
+   * Obtém o token de acesso armazenado nos cookies.
+   * @returns O token de acesso ou &#x60;null&#x60; se não encontrado.
+   */
   getToken(): string | null {
     return this.cookieService.get(&#x27;access_token&#x27;);
   }
 
+  /**
+   * Obtém o ID do jogador atual armazenado nos cookies.
+   * @returns O ID do jogador ou &#x60;null&#x60; se não encontrado.
+   */
   getCurrentPlayerId(): string | null {
     return this.cookieService.get(&#x27;user_id&#x27;);
   }
 
+  /**
+   * Verifica se o utilizador está autenticado (se existe um token de acesso válido).
+   * @returns &#x60;true&#x60; se o utilizador estiver autenticado, caso contrário &#x60;false&#x60;.
+   */
   isAuthenticated(): boolean {
     return !!this.getToken();
   }
 
+  /**
+   * Decodifica o token de acesso JWT e retorna o seu conteúdo.
+   * @returns O conteúdo do token decodificado ou &#x60;null&#x60; se o token não existir.
+   */
   decodeToken(): any {
     const token &#x3D; this.getToken();
     if (token) {
@@ -926,16 +1084,31 @@ export class AuthService {
     return null;
   }
 
+  /**
+   * Verifica se o utilizador tem permissões de administrador.
+   * @returns &#x60;true&#x60; se o utilizador for administrador, caso contrário &#x60;false&#x60;.
+   */
   isAdmin(): boolean {
     const decodedToken &#x3D; this.decodeToken();
     return decodedToken?.isAdmin || false;
   }
 
+  /**
+   * Verifica se o utilizador está associado a uma equipa.
+   * @returns &#x60;true&#x60; se o utilizador tiver uma equipa associada, caso contrário &#x60;false&#x60;.
+   */
   hasTeam(): boolean {
     const decodedToken &#x3D; this.decodeToken();
     return decodedToken?.idTeam !&#x3D; null;
   }
 
+  /**
+   * Realiza o login do utilizador utilizando email e senha.
+   * Se o login for bem-sucedido, os cookies de acesso e ID do utilizador são configurados.
+   * @param email O email do utilizador.
+   * @param password A senha do utilizador.
+   * @returns Um Observable com a resposta da API.
+   */
   login(email: string, password: string): Observable&lt;any&gt; {
     return this.http.post(&#x60;${this.baseUrl}/User/login&#x60;, { email, password }).pipe(
       map((response: any) &#x3D;&gt; {
@@ -947,6 +1120,18 @@ export class AuthService {
     );
   }
   
+  /**
+   * Realiza o registo de um novo jogador.
+   * @param name Nome do jogador.
+   * @param email Email do jogador.
+   * @param password Senha do jogador.
+   * @param dateOfBirth Data de nascimento do jogador.
+   * @param address Endereço do jogador.
+   * @param phone Número de telefone do jogador.
+   * @param position Posição do jogador.
+   * @param height Altura do jogador.
+   * @returns Um Observable com a resposta da API ou erro.
+   */
   signup(
     name: string,
     email: string,
@@ -971,10 +1156,19 @@ export class AuthService {
     }));
   }
   
-  getPlayerData(playerId: string): Observable&lt;any&gt; {
-    return this.http.get(&#x60;${this.baseUrl}/Player/details/${playerId}&#x60;);
+  /**
+   * Obtém os dados detalhados de um jogador pelo seu ID.
+   * @param playerId ID do jogador.
+   * @returns Um Observable com os detalhes do jogador.
+   */
+  getPlayerData(playerId: string): Observable&lt;PlayerDetails&gt; {
+    return this.http.get&lt;PlayerDetails&gt;(&#x60;${this.baseUrl}/Player/details/${playerId}&#x60;);
   }
 
+  /**
+   * Obtém o ID da equipa do jogador atual.
+   * @returns Um Observable com o ID da equipa do jogador ou &#x60;null&#x60; se não houver equipa associada.
+   */
   getCurrentTeamId(): Observable&lt;string | null&gt; {
     const playerId &#x3D; this.getCurrentPlayerId();
     if (!playerId) {

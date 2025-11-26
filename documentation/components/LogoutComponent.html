@@ -135,6 +135,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente responsável pelo logout do utilizador.
+Limpa os cookies de autenticação e redireciona para a página de login.</p>
+
+    </p>
 
 
 
@@ -231,7 +239,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/pages/login/logout.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/pages/login/logout.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -310,14 +318,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">src/app/components/pages/login/logout.component.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/app/components/pages/login/logout.component.ts:24</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Realiza o logout do utilizador, excluindo os cookies de autenticação e redirecionando para a página de login.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -358,7 +368,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/pages/login/logout.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/pages/login/logout.component.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -376,21 +386,27 @@ import { Router } from &#x27;@angular/router&#x27;;
 import { AuthService } from &#x27;../../../services/auth.service&#x27;;
 import { CookieService } from &#x27;ngx-cookie-service&#x27;;
 
+/**
+ * Componente responsável pelo logout do utilizador.
+ * Limpa os cookies de autenticação e redireciona para a página de login.
+ */
 @Component({
   selector: &#x27;app-logout&#x27;,
   template: &#x27;&#x27;,
 })
 export class LogoutComponent {
   private cookieService &#x3D; inject(CookieService);
-  
+
   constructor(private authService: AuthService, private router: Router) {
     this.logout();
   }
 
+  /**
+   * Realiza o logout do utilizador, excluindo os cookies de autenticação e redirecionando para a página de login.
+   */
   logout(): void {
     this.cookieService.delete(&#x27;access_token&#x27;, &#x27;/&#x27;);
     this.cookieService.delete(&#x27;user_id&#x27;, &#x27;/&#x27;);
-
     this.router.navigate([&#x27;/login&#x27;]);
   }
 }</code></pre>
@@ -424,7 +440,7 @@ export class LogoutComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LogoutComponent'};
 </script>

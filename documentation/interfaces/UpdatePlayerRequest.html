@@ -145,6 +145,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface utilizada para a atualização dos dados de um jogador.
+Contém os dados que podem ser alterados no perfil do jogador.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -249,6 +257,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Endereço atualizado do jogador.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -282,6 +296,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Data de nascimento atualizada do jogador.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -315,6 +335,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>E-mail atualizado do jogador.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -348,6 +374,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Altura atualizada do jogador, em centímetros.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -381,6 +413,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Nome atualizado do jogador.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -414,6 +452,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Número de telefone atualizado do jogador.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -447,6 +491,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>ID único do jogador a ser atualizado.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -480,6 +530,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Posição atualizada do jogador (representada como um número).</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -488,29 +544,117 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface PlayerDetails {
+
+  /**
+   * ID único do jogador.
+   */
   playerId: string;
+
+  /**
+   * Nome completo do jogador.
+   */
   name: string;
+
+  /**
+   * Endereço de e-mail do jogador.
+   */
   email: string;
+
+  /**
+   * Número de telefone do jogador.
+   */
   phoneNumber: string;
+
+  /**
+   * Data de nascimento do jogador (formato de string).
+   */
   dateOfBirth: string;
+
+  /**
+   * Endereço residencial do jogador.
+   */
   address: string;
+
+  /**
+   * Posição do jogador no campo, representada como um número (geralmente conforme um mapeamento de posições).
+   */
   position: number;
+
+  /**
+   * Altura do jogador, em centímetros.
+   */
   heigth: number;
+
+  /**
+   * A altura do jogador (opcional). Possivelmente um campo redundante com &#x60;heigth&#x60;.
+   */
   height?: number;
+
+  /**
+   * Indica se o jogador está associado a uma equipa ou não.
+   */
   haveTeam: boolean;
+
+  /**
+   * ID da equipa à qual o jogador pertence (opcional, pode ser &#x60;null&#x60; ou &#x60;undefined&#x60;).
+   */
   idTeam?: string | null;
+
+  /**
+   * Nome da equipa à qual o jogador pertence (opcional, pode ser &#x60;null&#x60; ou &#x60;undefined&#x60;).
+   */
   teamName?: string | null;
+
+  /**
+   * Indica se o jogador tem permissões de administrador (opcional).
+   */
   isAdmin?: boolean | null;
 }
 
+/**
+ * Interface utilizada para a atualização dos dados de um jogador.
+ * Contém os dados que podem ser alterados no perfil do jogador.
+ */
 export interface UpdatePlayerRequest {
+
+  /**
+   * ID único do jogador a ser atualizado.
+   */
   playerId: string;
+
+  /**
+   * Nome atualizado do jogador.
+   */
   Name: string;
+
+  /**
+   * Data de nascimento atualizada do jogador.
+   */
   DateOfBirth: string;
+
+  /**
+   * Endereço atualizado do jogador.
+   */
   Address: string;
+
+  /**
+   * E-mail atualizado do jogador.
+   */
   Email: string;
+
+  /**
+   * Número de telefone atualizado do jogador.
+   */
   Phone: string;
+
+  /**
+   * Posição atualizada do jogador (representada como um número).
+   */
   Position: number;
+
+  /**
+   * Altura atualizada do jogador, em centímetros.
+   */
   Height: number;
 }</code></pre>
     </div>

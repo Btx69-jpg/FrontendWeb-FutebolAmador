@@ -143,6 +143,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente responsável pelo ecrã de login.
+Realiza a autenticação do utilizador e gere o redirecionamento.</p>
+
+    </p>
 
 
 
@@ -292,14 +300,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="27"
-                                    class="link-to-prism">src/app/components/pages/login/login.component.ts:27</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/components/pages/login/login.component.ts:39</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para realizar o login.
+Autentica o utilizador e redireciona após sucesso.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -340,7 +351,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/pages/login/login.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/pages/login/login.component.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -372,7 +383,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/pages/login/login.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/pages/login/login.component.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -404,7 +415,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/pages/login/login.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/pages/login/login.component.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -438,10 +449,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/pages/login/login.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/pages/login/login.component.ts:30</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Formulário reativo para login.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -470,7 +487,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/pages/login/login.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/pages/login/login.component.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -491,6 +508,10 @@ import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { CookieService } from &#x27;ngx-cookie-service&#x27;;
 
+/**
+ * Componente responsável pelo ecrã de login.
+ * Realiza a autenticação do utilizador e gere o redirecionamento.
+ */
 @Component({
   selector: &#x27;app-login&#x27;,
   templateUrl: &#x27;./login.component.html&#x27;,
@@ -499,16 +520,24 @@ import { CookieService } from &#x27;ngx-cookie-service&#x27;;
   imports: [ReactiveFormsModule, CommonModule],
 })
 export class LoginComponent {
-  private authService &#x3D; inject(AuthService);
-  private router &#x3D; inject(Router);
-  private fb &#x3D; inject(FormBuilder);
-  private cookieService &#x3D; inject(CookieService);
-  
+
+  private authService &#x3D; inject(AuthService); // Serviço de autenticação
+  private router &#x3D; inject(Router); // Serviço de routing
+  private fb &#x3D; inject(FormBuilder); // Serviço de construção de formulários
+  private cookieService &#x3D; inject(CookieService); // Serviço para manipulação de cookies
+
+  /**
+   * Formulário reativo para login.
+   */
   loginForm &#x3D; this.fb.group({
     email: [&#x27;&#x27;, [Validators.required, Validators.email, Validators.minLength(4), Validators.maxLength(256)]],
     password: [&#x27;&#x27;, [Validators.required, Validators.minLength(6)]],
   });
 
+  /**
+   * Método para realizar o login.
+   * Autentica o utilizador e redireciona após sucesso.
+   */
   onLogin() {
     if (this.loginForm.invalid) return;
 
@@ -516,10 +545,8 @@ export class LoginComponent {
 
     this.authService.login(email, password).subscribe({
       next: (response) &#x3D;&gt; {
-        console.log(response);
         this.cookieService.set(&#x27;access_token&#x27;, response.firebaseLoginResponseDto.idToken, 7, &#x27;/&#x27;);
         this.cookieService.set(&#x27;user_id&#x27;, response.firebaseLoginResponseDto.localId, 7, &#x27;/&#x27;);
-
         this.router.navigate([&#x27;/players/me&#x27;]);
       },
       error: (err) &#x3D;&gt; {
@@ -611,7 +638,7 @@ export class LoginComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><section class="page">  <header class="page-header">    <div>      <h1 class="page-title">Login</h1>      <p class="page-subtitle">Entra com a tua conta para aceder à plataforma.</p>    </div>  </header>  <div class="card">    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">      <div class="form-field">        <label for="email">E-mail</label>        <input id="email" formControlName="email" type="email" placeholder="Introduz o teu e-mail" />      </div>      <div *ngIf="loginForm.controls[\'email\'].hasError(\'required\') && loginForm.controls[\'email\'].touched">        <small style="color: red;">E-mail é obrigatório.</small>      </div>      <div *ngIf="loginForm.controls[\'email\'].hasError(\'email\') && loginForm.controls[\'email\'].touched">        <small style="color: red;">Por favor, introduz um e-mail válido.</small>      </div>      <div *ngIf="loginForm.controls[\'email\'].hasError(\'minlength\') && loginForm.controls[\'email\'].touched">        <small style="color: red;">O e-mail deve ter pelo menos 4 caracteres.</small>      </div>      <div *ngIf="loginForm.controls[\'email\'].hasError(\'maxlength\') && loginForm.controls[\'email\'].touched">        <small style="color: red;">O e-mail deve ter no máximo 256 caracteres.</small>      </div>      <div class="form-field">        <label for="password">Palavra-passe</label>        <input id="password" formControlName="password" type="password" placeholder="Introduz a tua palavra-passe" />      </div>      <div *ngIf="loginForm.controls[\'password\'].hasError(\'required\') && loginForm.controls[\'password\'].touched">          <small style="color: red;">Palavra-passe é obrigatória.</small>        </div>        <div *ngIf="loginForm.controls[\'password\'].hasError(\'minlength\') && loginForm.controls[\'password\'].touched">          <small style="color: red;">A palavra-passe deve ter pelo menos 6 caracteres.</small>        </div>      <div class="form-actions">        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Entrar</button>      </div>    </form>  </div></section></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
 </script>

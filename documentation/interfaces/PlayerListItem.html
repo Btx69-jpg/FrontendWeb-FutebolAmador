@@ -145,6 +145,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface que representa as informações resumidas de um jogador, utilizadas em listas ou visualizações gerais.
+Esta interface é ideal para exibir uma visão compacta dos jogadores, com informações básicas.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -250,6 +258,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Endereço residencial do jogador.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -283,6 +297,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Idade do jogador.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -316,6 +336,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Indica se o jogador está associado a uma equipa ou não.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -349,6 +375,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Altura do jogador em centímetros.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -382,6 +414,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>ID único do jogador.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -415,6 +453,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Nome completo do jogador.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -448,6 +492,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Posição do jogador (representada como um número, geralmente conforme um mapeamento definido).</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -486,6 +536,13 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Nome da equipa à qual o jogador pertence (opcional).
+Pode ser <code>null</code> ou <code>undefined</code> se o jogador não estiver associado a uma equipa.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -494,13 +551,46 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface PlayerListItem {
+
+  /**
+   * ID único do jogador.
+   */
   id: string;
+
+  /**
+   * Nome completo do jogador.
+   */
   name: string;
+
+  /**
+   * Posição do jogador (representada como um número, geralmente conforme um mapeamento definido).
+   */
   position: number;
+
+  /**
+   * Altura do jogador em centímetros.
+   */
   heigth: number;
+
+  /**
+   * Indica se o jogador está associado a uma equipa ou não.
+   */
   haveTeam: boolean;
+
+  /**
+   * Idade do jogador.
+   */
   age: number;
+
+  /**
+   * Nome da equipa à qual o jogador pertence (opcional).
+   * Pode ser &#x60;null&#x60; ou &#x60;undefined&#x60; se o jogador não estiver associado a uma equipa.
+   */
   teamName?: string | null;
+
+  /**
+   * Endereço residencial do jogador.
+   */
   address: string;
 }</code></pre>
     </div>

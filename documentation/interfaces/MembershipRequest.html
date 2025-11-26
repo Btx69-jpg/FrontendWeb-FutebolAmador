@@ -145,6 +145,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface que representa um pedido de adesão de um jogador a uma equipa (ou vice-versa).
+Utilizada para transferir as informações do pedido de adesão entre o cliente e o servidor.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -243,6 +251,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Indica se o pedido de adesão foi feito pelo jogador (se o jogador é o remetente do pedido).</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -276,6 +290,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>ID do jogador que fez o pedido de adesão.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -309,6 +329,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Nome do jogador que fez o pedido de adesão.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -342,6 +368,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Data em que o pedido de adesão foi feito (formato de string).</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -375,6 +407,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>ID único do pedido de adesão.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -408,6 +446,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>ID da equipa para a qual o jogador está a pedir adesão.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -441,6 +485,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Nome da equipa para a qual o jogador está a pedir adesão.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -449,12 +499,40 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface MembershipRequest {
+
+  /**
+   * ID único do pedido de adesão.
+   */
   requestId: string;
+
+  /**
+   * Nome do jogador que fez o pedido de adesão.
+   */
   playerName: string;
+
+  /**
+   * ID do jogador que fez o pedido de adesão.
+   */
   playerId: string;
+
+  /**
+   * ID da equipa para a qual o jogador está a pedir adesão.
+   */
   teamId: string;
+
+  /**
+   * Nome da equipa para a qual o jogador está a pedir adesão.
+   */
   teamName: string;
+
+  /**
+   * Data em que o pedido de adesão foi feito (formato de string).
+   */
   requestDate: string;
+
+  /**
+   * Indica se o pedido de adesão foi feito pelo jogador (se o jogador é o remetente do pedido).
+   */
   isPlayerSender: boolean;
 }</code></pre>
     </div>

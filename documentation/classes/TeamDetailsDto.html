@@ -346,7 +346,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/PlayerDetails.html" target="_self" >PlayerDetailsDto[]</a></code>
+                        <i>Type : </i>        <code><a href="../interfaces/PlayerDetails.html" target="_self" >PlayerDetails[]</a></code>
 
                     </td>
                 </tr>
@@ -424,7 +424,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PitchDto } from &quot;../Pitch/PitchDto&quot;;
-import { PlayerDetailsDto } from &quot;../Player/PlayerDetailsDto&quot;;
+import { PlayerDetails } from &quot;../player.model&quot;;
 
 export class TeamDetailsDto{
     id!: string;
@@ -434,7 +434,7 @@ export class TeamDetailsDto{
     totalPoints!: number;
     rankName!: string;
     pitchDto!: PitchDto;
-    players!: PlayerDetailsDto[];
+    players!: PlayerDetails[];
 }</code></pre>
     </div>
 </div>

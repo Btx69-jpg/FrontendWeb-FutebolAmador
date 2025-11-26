@@ -135,6 +135,15 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente responsável por redirecionar o utilizador para o perfil do jogador.
+Se o ID do jogador estiver disponível, redireciona para a página de detalhes do jogador.
+Caso contrário, redireciona para a página de login.</p>
+
+    </p>
 
 
 
@@ -229,7 +238,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/pages/player-profile/player-profile-redirect/player-profile-redirect.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/pages/player-profile/player-profile-redirect/player-profile-redirect.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -272,7 +281,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/pages/player-profile/player-profile-redirect/player-profile-redirect.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/pages/player-profile/player-profile-redirect/player-profile-redirect.component.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -304,7 +313,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/pages/player-profile/player-profile-redirect/player-profile-redirect.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/pages/player-profile/player-profile-redirect/player-profile-redirect.component.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -321,14 +330,19 @@
 import { Router } from &#x27;@angular/router&#x27;;
 import { AuthService } from &#x27;../../../../services/auth.service&#x27;;
 
+/**
+ * Componente responsável por redirecionar o utilizador para o perfil do jogador.
+ * Se o ID do jogador estiver disponível, redireciona para a página de detalhes do jogador.
+ * Caso contrário, redireciona para a página de login.
+ */
 @Component({
   selector: &#x27;app-player-profile-redirect&#x27;,
   standalone: true,
-  template: &#x60;&lt;p&gt;A carregar o perfil...&lt;/p&gt;&#x60;
+  template: &#x60;&lt;p&gt;A carregar o perfil...&lt;/p&gt;&#x60;,
 })
 export class PlayerProfileRedirectComponent {
-  private auth &#x3D; inject(AuthService);
-  private router &#x3D; inject(Router);
+  private auth &#x3D; inject(AuthService); // Serviço de autenticação
+  private router &#x3D; inject(Router); // Serviço de navegação
 
   constructor() {
     const id &#x3D; this.auth.getCurrentPlayerId();
@@ -370,7 +384,7 @@ export class PlayerProfileRedirectComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><p>A carregar o perfil...</p></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PlayerProfileRedirectComponent'};
 </script>

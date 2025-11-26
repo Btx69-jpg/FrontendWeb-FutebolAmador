@@ -143,6 +143,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente responsável pela exibição da barra lateral (sidebar).
+Exibe opções de navegação baseadas no estado de autenticação e permissões do utilizador.</p>
+
+    </p>
 
 
 
@@ -289,10 +297,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/partials/nav/sidebar/sidebar.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/partials/nav/sidebar/sidebar.component.ts:22</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Serviço de autenticação utilizado para verificar o estado de login e permissões do utilizador.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -318,9 +332,21 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/partials/nav/sidebar/sidebar.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/partials/nav/sidebar/sidebar.component.ts:28</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Verifica se o utilizador está autenticado.
+Retorna um valor booleano que indica se o utilizador está autenticado ou não.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -340,9 +366,21 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/partials/nav/sidebar/sidebar.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/partials/nav/sidebar/sidebar.component.ts:36</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Verifica se o utilizador tem permissões de administrador.
+Retorna um valor booleano que indica se o utilizador é um administrador.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -362,9 +400,21 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/partials/nav/sidebar/sidebar.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/partials/nav/sidebar/sidebar.component.ts:44</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Verifica se o utilizador está associado a uma equipa.
+Retorna um valor booleano que indica se o utilizador tem uma equipa associada.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -378,6 +428,10 @@ import { RouterModule } from &#x27;@angular/router&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { AuthService } from &#x27;../../../..//services/auth.service&#x27;;
 
+/**
+ * Componente responsável pela exibição da barra lateral (sidebar).
+ * Exibe opções de navegação baseadas no estado de autenticação e permissões do utilizador.
+ */
 @Component({
   selector: &#x27;app-sidebar&#x27;,
   standalone: true,
@@ -386,16 +440,32 @@ import { AuthService } from &#x27;../../../..//services/auth.service&#x27;;
   styleUrls: [&#x27;./sidebar.component.css&#x27;],
 })
 export class SidebarComponent {
+  
+  /**
+   * Serviço de autenticação utilizado para verificar o estado de login e permissões do utilizador.
+   */
   private authService &#x3D; inject(AuthService);
 
+  /**
+   * Verifica se o utilizador está autenticado.
+   * Retorna um valor booleano que indica se o utilizador está autenticado ou não.
+   */
   get isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
   }
 
+  /**
+   * Verifica se o utilizador tem permissões de administrador.
+   * Retorna um valor booleano que indica se o utilizador é um administrador.
+   */
   get isAdmin(): boolean {
     return this.authService.isAdmin();
   }
 
+  /**
+   * Verifica se o utilizador está associado a uma equipa.
+   * Retorna um valor booleano que indica se o utilizador tem uma equipa associada.
+   */
   get hasTeam(): boolean {
     return this.authService.hasTeam();
   }
@@ -525,7 +595,7 @@ export class SidebarComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><aside class="sidebar">  <div class="sidebar__brand">    <a routerLink="/">      <img src="assets/football.ico" alt="Logo" class="sidebar__logo" />      <span class="sidebar__title">Futebol Amador</span>    </a>  </div>  <nav class="sidebar__nav">    <a *ngIf="isAuthenticated" routerLink="/players" routerLinkActive="active" class="sidebar__link">      Jogadores    </a>    <a *ngIf="isAuthenticated" routerLink="/teams" routerLinkActive="active" class="sidebar__link">      Equipas    </a>    <a *ngIf="isAuthenticated" routerLink="/players/me" routerLinkActive="active" class="sidebar__link">      O meu perfil    </a>    <a routerLink="/settings" routerLinkActive="active" class="sidebar__link">      Definições    </a>    <a *ngIf="!isAuthenticated" routerLink="/signup" routerLinkActive="active" class="sidebar__link">      Criar Conta    </a>    <a *ngIf="!isAuthenticated" routerLink="/login" routerLinkActive="active" class="sidebar__link">      Login    </a>    <a *ngIf="isAuthenticated" routerLink="/logout" routerLinkActive="active" class="sidebar__link">      Logout    </a>  </nav></aside></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SidebarComponent'};
 </script>
