@@ -1,0 +1,1865 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/readthedocs.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  PlayerListPageComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/pages/player-list/player-list-page.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-player-list-page</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>RouterModule</code>
+                            <code>FormsModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./player-list-page.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./player-list-page.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#authService" >authService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#currentPage" >currentPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#errorMessage" >errorMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#filterDto" >filterDto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#filteredPlayers" >filteredPlayers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#isLoading" >isLoading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#membershipRequestService" >membershipRequestService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#noResults" >noResults</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#players" >players</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#playerService" >playerService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#playersPerPage" >playersPerPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#router" >router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#showFilters" >showFilters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#successMessage" >successMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#visiblePlayers" >visiblePlayers</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#applyFilters" >applyFilters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#clearSearchResults" >clearSearchResults</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#goToPreviousPage" >goToPreviousPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#hasMorePlayers" >hasMorePlayers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#hasPreviousPage" >hasPreviousPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#loadMorePlayers" >loadMorePlayers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#loadPlayers" >loadPlayers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#openPlayer" >openPlayer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#sendMembershipRequest" >sendMembershipRequest</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:80</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyFilters"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>applyFilters</b></span>
+                        <a href="#applyFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyFilters()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearSearchResults"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>clearSearchResults</b></span>
+                        <a href="#clearSearchResults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearSearchResults()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToPreviousPage"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>goToPreviousPage</b></span>
+                        <a href="#goToPreviousPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goToPreviousPage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasMorePlayers"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>hasMorePlayers</b></span>
+                        <a href="#hasMorePlayers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasMorePlayers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasPreviousPage"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>hasPreviousPage</b></span>
+                        <a href="#hasPreviousPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasPreviousPage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadMorePlayers"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>loadMorePlayers</b></span>
+                        <a href="#loadMorePlayers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadMorePlayers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:114</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadPlayers"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>loadPlayers</b></span>
+                        <a href="#loadPlayers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadPlayers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openPlayer"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>openPlayer</b></span>
+                        <a href="#openPlayer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openPlayer(player: <a href="../interfaces/PlayerDetails.html" target="_self">PlayerDetails</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>player</td>
+                                            <td>
+                                                            <code><a href="../interfaces/PlayerDetails.html" target="_self" >PlayerDetails</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendMembershipRequest"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>sendMembershipRequest</b></span>
+                        <a href="#sendMembershipRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sendMembershipRequest(playerId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>playerId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>authService</b></span>
+                        <a href="#authService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AuthService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentPage"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>currentPage</b></span>
+                        <a href="#currentPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;number&gt;(1)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMessage"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>errorMessage</b></span>
+                        <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterDto"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>filterDto</b></span>
+                        <a href="#filterDto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;PlayerFilterDto&gt;(new PlayerFilterDto())</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filteredPlayers"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>filteredPlayers</b></span>
+                        <a href="#filteredPlayers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed(() &#x3D;&gt; {
+    const { city, minAge, maxAge, minHeight, maxHeight, position, name } &#x3D; this.filterDto();
+
+    const filtered &#x3D; this.players().filter((p) &#x3D;&gt; {
+      const matchesCity &#x3D; city ? p.address.toLowerCase().includes(city.toLowerCase()) : true;
+      const matchesName &#x3D; name ? p.name.toLowerCase().includes(name.toLowerCase()) : true;
+      const matchesPosition &#x3D; position ? p.position &#x3D;&#x3D;&#x3D; POSITION_MAP_TONUMBER[position] : true;
+
+      return (
+        matchesCity &amp;&amp;
+        matchesName &amp;&amp;
+        matchesPosition &amp;&amp;
+        p.age &gt;&#x3D; minAge &amp;&amp;
+        p.age &lt;&#x3D; maxAge &amp;&amp;
+        p.heigth &gt;&#x3D; minHeight &amp;&amp;
+        p.heigth &lt;&#x3D; maxHeight
+      );
+    });
+
+    return filtered;
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoading"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>isLoading</b></span>
+                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="membershipRequestService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>membershipRequestService</b></span>
+                        <a href="#membershipRequestService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MembershipRequestService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="noResults"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>noResults</b></span>
+                        <a href="#noResults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed(() &#x3D;&gt; {
+    const { city, minAge, maxAge, minHeight, maxHeight, position, name } &#x3D; this.filterDto();
+
+    const isValidAge &#x3D; minAge &gt;&#x3D; 18 &amp;&amp; maxAge &lt;&#x3D; 70;
+    const isValidHeight &#x3D; minHeight &gt;&#x3D; 100 &amp;&amp; maxHeight &lt;&#x3D; 250;
+
+    return (
+      this.filteredPlayers().length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; 
+      (city !&#x3D;&#x3D; &#x27;&#x27; || name !&#x3D;&#x3D; &#x27;&#x27; || position !&#x3D;&#x3D; &#x27;&#x27; || 
+      !isValidAge || !isValidHeight ||
+      minHeight &lt; 100 || maxHeight &gt; 250 || 
+      minAge &lt; 18 || maxAge &gt; 70)
+    );
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="players"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>players</b></span>
+                        <a href="#players"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;PlayerListItem[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="playerService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>playerService</b></span>
+                        <a href="#playerService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(PlayerService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="playersPerPage"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>playersPerPage</b></span>
+                        <a href="#playersPerPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>10</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showFilters"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>showFilters</b></span>
+                        <a href="#showFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="successMessage"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>successMessage</b></span>
+                        <a href="#successMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visiblePlayers"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>visiblePlayers</b></span>
+                        <a href="#visiblePlayers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed(() &#x3D;&gt;
+    this.filteredPlayers().slice(
+      (this.currentPage() - 1) * this.playersPerPage,
+      this.currentPage() * this.playersPerPage
+    )
+  )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/pages/player-list/player-list-page.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Component, computed, inject, signal } from &#x27;@angular/core&#x27;;
+import { Router, RouterModule } from &#x27;@angular/router&#x27;;
+import { PlayerService } from &#x27;../../../services/player.service&#x27;;
+import { PlayerDetails } from &#x27;../../../shared/Dtos/player.model&#x27;;
+import { POSITION_MAP_TONUMBER } from &#x27;../../../shared/constants/position-map-to-number&#x27;;
+import { PlayerListItem } from &#x27;../../../shared/Dtos/player-list-item.model&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { PlayerFilterDto } from &#x27;../../../shared/Dtos/Player/PlayerFilterDto&#x27;;
+import { MembershipRequestService } from &#x27;../../../services/membership-request.service&#x27;;
+import { AuthService } from &#x27;../../../services/auth.service&#x27;;
+
+@Component({
+  selector: &#x27;app-player-list-page&#x27;,
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule],
+  templateUrl: &#x27;./player-list-page.component.html&#x27;,
+  styleUrls: [&#x27;./player-list-page.component.css&#x27;],
+})
+export class PlayerListPageComponent {
+  private readonly playerService &#x3D; inject(PlayerService);
+  private readonly router &#x3D; inject(Router);
+
+  protected readonly players &#x3D; signal&lt;PlayerListItem[]&gt;([]);
+  protected readonly isLoading &#x3D; signal&lt;boolean&gt;(false);
+  protected readonly errorMessage &#x3D; signal&lt;string | null&gt;(null);
+  protected readonly successMessage &#x3D; signal&lt;string | null&gt;(null);
+
+  protected readonly filterDto &#x3D; signal&lt;PlayerFilterDto&gt;(new PlayerFilterDto());
+  protected readonly showFilters &#x3D; signal&lt;boolean&gt;(false);
+
+  protected readonly playersPerPage &#x3D; 10;
+  protected readonly currentPage &#x3D; signal&lt;number&gt;(1);
+
+  private readonly membershipRequestService &#x3D; inject(MembershipRequestService);
+  private readonly authService &#x3D; inject(AuthService);
+
+  protected readonly visiblePlayers &#x3D; computed(() &#x3D;&gt;
+    this.filteredPlayers().slice(
+      (this.currentPage() - 1) * this.playersPerPage,
+      this.currentPage() * this.playersPerPage
+    )
+  );
+
+  protected readonly noResults &#x3D; computed(() &#x3D;&gt; {
+    const { city, minAge, maxAge, minHeight, maxHeight, position, name } &#x3D; this.filterDto();
+
+    const isValidAge &#x3D; minAge &gt;&#x3D; 18 &amp;&amp; maxAge &lt;&#x3D; 70;
+    const isValidHeight &#x3D; minHeight &gt;&#x3D; 100 &amp;&amp; maxHeight &lt;&#x3D; 250;
+
+    return (
+      this.filteredPlayers().length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; 
+      (city !&#x3D;&#x3D; &#x27;&#x27; || name !&#x3D;&#x3D; &#x27;&#x27; || position !&#x3D;&#x3D; &#x27;&#x27; || 
+      !isValidAge || !isValidHeight ||
+      minHeight &lt; 100 || maxHeight &gt; 250 || 
+      minAge &lt; 18 || maxAge &gt; 70)
+    );
+  });
+
+  protected readonly filteredPlayers &#x3D; computed(() &#x3D;&gt; {
+    const { city, minAge, maxAge, minHeight, maxHeight, position, name } &#x3D; this.filterDto();
+
+    const filtered &#x3D; this.players().filter((p) &#x3D;&gt; {
+      const matchesCity &#x3D; city ? p.address.toLowerCase().includes(city.toLowerCase()) : true;
+      const matchesName &#x3D; name ? p.name.toLowerCase().includes(name.toLowerCase()) : true;
+      const matchesPosition &#x3D; position ? p.position &#x3D;&#x3D;&#x3D; POSITION_MAP_TONUMBER[position] : true;
+
+      return (
+        matchesCity &amp;&amp;
+        matchesName &amp;&amp;
+        matchesPosition &amp;&amp;
+        p.age &gt;&#x3D; minAge &amp;&amp;
+        p.age &lt;&#x3D; maxAge &amp;&amp;
+        p.heigth &gt;&#x3D; minHeight &amp;&amp;
+        p.heigth &lt;&#x3D; maxHeight
+      );
+    });
+
+    return filtered;
+  });
+
+  constructor() {
+  }
+
+  protected openPlayer(player: PlayerDetails): void {
+    this.router.navigate([&#x27;/players&#x27;, player.playerId]);
+  }
+
+  protected loadPlayers(): void {
+    this.isLoading.set(true);
+    this.errorMessage.set(null);
+    this.playerService.getPlayers().subscribe({
+      next: (players) &#x3D;&gt; {
+        this.players.set(players);
+        this.isLoading.set(false);
+      },
+      error: (err) &#x3D;&gt; {
+        this.errorMessage.set(&#x27;Erro ao carregar jogadores&#x27;);
+        this.isLoading.set(false);
+      },
+    });
+  }
+
+  protected applyFilters(): void {
+    this.currentPage.set(1);
+    this.loadPlayers();
+  }
+
+  protected clearSearchResults(): void {
+    this.players.set([]);
+    this.currentPage.set(1);
+  }
+
+  protected loadMorePlayers(): void {
+    this.currentPage.set(this.currentPage() + 1);
+    this.loadPlayers();
+  }
+
+  protected goToPreviousPage(): void {
+    if (this.currentPage() &gt; 1) {
+      this.currentPage.set(this.currentPage() - 1);
+      this.loadPlayers();
+    }
+  }
+
+  protected hasMorePlayers(): boolean {
+    return this.filteredPlayers().length &gt; this.currentPage() * this.playersPerPage;
+  }
+
+  protected hasPreviousPage(): boolean {
+    return this.currentPage() &gt; 1;
+  }
+
+  protected sendMembershipRequest(playerId: string): void {
+    this.membershipRequestService
+      .sendMembershipRequestTeam(playerId)
+      .subscribe({
+        next: () &#x3D;&gt; {
+          this.successMessage.set(&#x27;Pedido de adesão enviado com sucesso!&#x27;);
+        },
+        error: (err) &#x3D;&gt; {
+          console.error(err);
+          this.errorMessage.set(&#x27;Não foi possível enviar o pedido de adesão.&#x27;);
+        },
+      });
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;filters-container&quot; *ngIf&#x3D;&quot;showFilters()&quot;&gt;
+  &lt;div&gt;
+    &lt;label for&#x3D;&quot;city&quot;&gt;Cidade:&lt;/label&gt;
+    &lt;input id&#x3D;&quot;city&quot; type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;filterDto().city&quot; placeholder&#x3D;&quot;Introduz a cidade&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for&#x3D;&quot;minAge&quot;&gt;Idade Mínima:&lt;/label&gt;
+    &lt;input id&#x3D;&quot;minAge&quot; type&#x3D;&quot;number&quot; [(ngModel)]&#x3D;&quot;filterDto().minAge&quot; min&#x3D;&quot;18&quot; max&#x3D;&quot;70&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for&#x3D;&quot;maxAge&quot;&gt;Idade Máxima:&lt;/label&gt;
+    &lt;input id&#x3D;&quot;maxAge&quot; type&#x3D;&quot;number&quot; [(ngModel)]&#x3D;&quot;filterDto().maxAge&quot; min&#x3D;&quot;18&quot; max&#x3D;&quot;70&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for&#x3D;&quot;minHeight&quot;&gt;Altura Mínima (cm):&lt;/label&gt;
+    &lt;input id&#x3D;&quot;minHeight&quot; type&#x3D;&quot;number&quot; [(ngModel)]&#x3D;&quot;filterDto().minHeight&quot; min&#x3D;&quot;100&quot; max&#x3D;&quot;250&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for&#x3D;&quot;maxHeight&quot;&gt;Altura Máxima (cm):&lt;/label&gt;
+    &lt;input id&#x3D;&quot;maxHeight&quot; type&#x3D;&quot;number&quot; [(ngModel)]&#x3D;&quot;filterDto().maxHeight&quot; min&#x3D;&quot;100&quot; max&#x3D;&quot;250&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for&#x3D;&quot;position&quot;&gt;Posição:&lt;/label&gt;
+    &lt;input id&#x3D;&quot;position&quot; type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;filterDto().position&quot; placeholder&#x3D;&quot;Introduz a posição (Ex: Avançado)&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;label for&#x3D;&quot;name&quot;&gt;Nome do Jogador:&lt;/label&gt;
+    &lt;input id&#x3D;&quot;name&quot; type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;filterDto().name&quot; placeholder&#x3D;&quot;Introduz o nome do jogador&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;button (click)&#x3D;&quot;applyFilters()&quot;&gt;Aplicar Filtros&lt;/button&gt;
+  &lt;button (click)&#x3D;&quot;clearSearchResults()&quot;&gt;Limpar Resultados&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;button class&#x3D;&quot;mt-4&quot; (click)&#x3D;&quot;showFilters.set(!showFilters())&quot;&gt;
+  {{ showFilters() ? &#x27;Esconder Filtros&#x27; : &#x27;Mostrar Filtros&#x27; }}
+&lt;/button&gt;
+
+&lt;div *ngIf&#x3D;&quot;isLoading()&quot;&gt;Carregando...&lt;/div&gt;
+&lt;div *ngIf&#x3D;&quot;errorMessage()&quot;&gt;{{ errorMessage() }}&lt;/div&gt;
+
+&lt;div *ngIf&#x3D;&quot;!noResults() &amp;&amp; !isLoading()&quot;&gt;
+  &lt;div *ngFor&#x3D;&quot;let player of visiblePlayers()&quot;&gt;
+    &lt;div class&#x3D;&quot;player-item&quot;&gt;
+      &lt;h3&gt;{{ player.name }}&lt;/h3&gt;
+      &lt;p&gt;{{ player.address }}&lt;/p&gt;
+      &lt;p&gt;{{ player.age }} anos, {{ player.heigth }} cm&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;button (click)&#x3D;&quot;sendMembershipRequest(player.id)&quot;&gt;Convidar para o clube&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;pagination-controls&quot;&gt;
+    &lt;button *ngIf&#x3D;&quot;hasPreviousPage()&quot; (click)&#x3D;&quot;goToPreviousPage()&quot; class&#x3D;&quot;pagination-btn previous&quot;&gt;
+      &lt;span&gt;&amp;lt;&lt;/span&gt;
+    &lt;/button&gt;
+    
+    &lt;button *ngIf&#x3D;&quot;hasMorePlayers()&quot; (click)&#x3D;&quot;loadMorePlayers()&quot; class&#x3D;&quot;pagination-btn&quot;&gt;
+      &lt;span&gt;&amp;gt;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div *ngIf&#x3D;&quot;noResults() &amp;&amp; !isLoading()&quot; class&#x3D;&quot;state--no-results&quot;&gt;Sem resultados.&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./player-list-page.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.page-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.page-header__actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.search-input {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  min-width: 260px;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.search-input:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 1px #fed7aa;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.players-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.players-table th,
+.players-table td {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.players-table th {
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.players-table__row {
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.players-table__row:hover {
+  background: #f9fafb;
+}
+
+.state {
+  padding: 0.75rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.state--loading {
+  color: #ffffff;
+}
+
+.state--error {
+  color: #b91c1c;
+}
+
+.filters-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+button.show-filters-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button.show-filters-btn:hover {
+  background-color: #218838;
+}
+
+input[type&#x3D;&quot;text&quot;],
+input[type&#x3D;&quot;number&quot;] {
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  min-width: 260px;
+  outline: none;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+input[type&#x3D;&quot;text&quot;]:focus,
+input[type&#x3D;&quot;number&quot;]:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 1px #fed7aa;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.player-item {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  margin-bottom: 1rem;
+}
+
+.player-item h3 {
+  font-size: 1.2rem;
+  margin: 0 0 5px;
+}
+
+.player-item p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.player-item:hover {
+  background-color: #f9fafb;
+}
+
+.state--no-results {
+  padding: 1rem;
+  font-style: bold;
+  color: #ffffff;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 4px;
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="filters-container" *ngIf="showFilters()">  <div>    <label for="city">Cidade:</label>    <input id="city" type="text" [(ngModel)]="filterDto().city" placeholder="Introduz a cidade">  </div>  <div>    <label for="minAge">Idade Mínima:</label>    <input id="minAge" type="number" [(ngModel)]="filterDto().minAge" min="18" max="70">  </div>  <div>    <label for="maxAge">Idade Máxima:</label>    <input id="maxAge" type="number" [(ngModel)]="filterDto().maxAge" min="18" max="70">  </div>  <div>    <label for="minHeight">Altura Mínima (cm):</label>    <input id="minHeight" type="number" [(ngModel)]="filterDto().minHeight" min="100" max="250">  </div>  <div>    <label for="maxHeight">Altura Máxima (cm):</label>    <input id="maxHeight" type="number" [(ngModel)]="filterDto().maxHeight" min="100" max="250">  </div>  <div>    <label for="position">Posição:</label>    <input id="position" type="text" [(ngModel)]="filterDto().position" placeholder="Introduz a posição (Ex: Avançado)">  </div>  <div>    <label for="name">Nome do Jogador:</label>    <input id="name" type="text" [(ngModel)]="filterDto().name" placeholder="Introduz o nome do jogador">  </div>  <button (click)="applyFilters()">Aplicar Filtros</button>  <button (click)="clearSearchResults()">Limpar Resultados</button></div><button class="mt-4" (click)="showFilters.set(!showFilters())">  {{ showFilters() ? \'Esconder Filtros\' : \'Mostrar Filtros\' }}</button><div *ngIf="isLoading()">Carregando...</div><div *ngIf="errorMessage()">{{ errorMessage() }}</div><div *ngIf="!noResults() && !isLoading()">  <div *ngFor="let player of visiblePlayers()">    <div class="player-item">      <h3>{{ player.name }}</h3>      <p>{{ player.address }}</p>      <p>{{ player.age }} anos, {{ player.heigth }} cm</p>    </div>    <button (click)="sendMembershipRequest(player.id)">Convidar para o clube</button>  </div>  <div class="pagination-controls">    <button *ngIf="hasPreviousPage()" (click)="goToPreviousPage()" class="pagination-btn previous">      <span>&lt;</span>    </button>        <button *ngIf="hasMorePlayers()" (click)="loadMorePlayers()" class="pagination-btn">      <span>&gt;</span>    </button>  </div></div><div *ngIf="noResults() && !isLoading()" class="state--no-results">Sem resultados.</div></div>'
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'PlayerListPageComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PlayerListPageComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
