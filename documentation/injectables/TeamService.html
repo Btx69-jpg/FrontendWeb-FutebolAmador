@@ -183,6 +183,9 @@
                                 <a href="#getTeamById" >getTeamById</a>
                             </li>
                             <li>
+                                <a href="#searchTeams" >searchTeams</a>
+                            </li>
+                            <li>
                                 <a href="#updateTeam" >updateTeam</a>
                             </li>
                         </ul>
@@ -408,6 +411,85 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="searchTeams"></a>
+                    <span class="name">
+                        <span ><b>searchTeams</b></span>
+                        <a href="#searchTeams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>searchTeams(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, filter?: <a href="../classes/FilterListTeamDto.html" target="_self">FilterListTeamDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/services/team.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>teamId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>filter</td>
+                                            <td>
+                                                            <code><a href="../classes/FilterListTeamDto.html" target="_self" >FilterListTeamDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="updateTeam"></a>
                     <span class="name">
                         <span ><b>updateTeam</b></span>
@@ -417,7 +499,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateTeam(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: <a href="../classes/UpdateTeamDto.html" target="_self">UpdateTeamDto</a>)</code>
+<code>updateTeam(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: <a href="../classes/CreateTeamDto.html" target="_self">CreateTeamDto</a>)</code>
                 </td>
             </tr>
 
@@ -460,7 +542,7 @@
                                         <tr>
                                                 <td>data</td>
                                             <td>
-                                                            <code><a href="../classes/UpdateTeamDto.html" target="_self" >UpdateTeamDto</a></code>
+                                                            <code><a href="../classes/CreateTeamDto.html" target="_self" >CreateTeamDto</a></code>
                                             </td>
 
                                             <td>
@@ -559,13 +641,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpParams } from &#x27;@angular/common/http&#x27;;
 import { inject, Injectable } from &#x27;@angular/core&#x27;;
 import { environment } from &#x27;../environments/environment&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { TeamDetailsDto } from &#x27;../shared/Dtos/Team/TeamDetailsDto&#x27;;
-import { UpdateTeamDto } from &#x27;../shared/Dtos/Team/UpdateTeamDto&#x27;;
 import { CreateTeamDto } from &#x27;../shared/Dtos/Team/CreateTeamDto&#x27;;
+import { FilterListTeamDto } from &#x27;../shared/Dtos/Filters/FilterListTeamDto&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;,
@@ -582,12 +664,26 @@ export class TeamService {
     return this.http.post&lt;void&gt;(&#x60;${this.baseUrl}&#x60;, data);
   }
 
-  updateTeam(teamId: string, data: UpdateTeamDto): Observable&lt;void&gt; {
-    return this.http.put&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}&#x60;, data);
+  updateTeam(teamId: string, data: CreateTeamDto): Observable&lt;void&gt; {
+    return this.http.put&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}&#x60;, data, {responseType: &#x27;text&#x27; as &#x27;json&#x27;});
   }
 
   deleteTeam(teamId: string): Observable&lt;void&gt; {
     return this.http.delete&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}&#x60;);
+  }
+
+  searchTeams(teamId: string, filter?: FilterListTeamDto): Observable&lt;any&gt; {
+    let params &#x3D; new HttpParams();
+
+    if (filter) {
+      Object.entries(filter).forEach(([key, value]) &#x3D;&gt; {
+        if (value !&#x3D;&#x3D; null &amp;&amp; value !&#x3D;&#x3D; undefined &amp;&amp; value !&#x3D;&#x3D; &#x27;&#x27;) {
+          params &#x3D; params.append(key, value);
+        }
+      });
+    }
+
+    return this.http.get(&#x60;${this.baseUrl}/${teamId}/search&#x60;, { params });
   }
 }
 </code></pre>

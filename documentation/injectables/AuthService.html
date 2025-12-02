@@ -1176,7 +1176,7 @@ export class AuthService {
     }
 
     return this.getPlayerData(playerId).pipe(
-      map(playerData &#x3D;&gt; playerData?.idTeam ?? null)
+      map(playerData &#x3D;&gt; playerData?.team?.idTeam ?? null)
     );
   }
 }</code></pre>

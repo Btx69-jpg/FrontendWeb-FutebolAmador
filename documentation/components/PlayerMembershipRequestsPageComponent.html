@@ -803,7 +803,7 @@ Exibe uma confirmação antes de rejeitar o pedido.</p>
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { Component, computed, inject, signal } from &#x27;@angular/core&#x27;;
 import { MembershipRequestService } from &#x27;../../../services/membership-request.service&#x27;;
-import { MembershipRequest } from &#x27;../../..//shared/Dtos/membership-request.model&#x27;;
+import { MembershipRequest } from &#x27;../../../shared/Dtos/membership-request.model&#x27;;
 
 /**
  * Componente responsável pela gestão de pedidos de adesão de jogadores.
@@ -876,7 +876,7 @@ export class PlayerMembershipRequestsPageComponent {
   protected accept(request: MembershipRequest): void {
     if (
       !confirm(
-        &#x60;Tens a certeza que queres aceitar o pedido de adesão da equipa &quot;${request.teamName}&quot;?&#x60;
+        &#x60;Tens a certeza que queres aceitar o pedido de adesão da equipa &quot;${request.team.name}&quot;?&#x60;
       )
     ) {
       return;
@@ -908,7 +908,7 @@ export class PlayerMembershipRequestsPageComponent {
   protected reject(request: MembershipRequest): void {
     if (
       !confirm(
-        &#x60;Tens a certeza que queres rejeitar o pedido de adesão da equipa &quot;${request.teamName}&quot;?&#x60;
+        &#x60;Tens a certeza que queres rejeitar o pedido de adesão da equipa &quot;${request.team.name}&quot;?&#x60;
       )
     ) {
       return;
@@ -972,7 +972,7 @@ export class PlayerMembershipRequestsPageComponent {
             *ngFor&#x3D;&quot;let request of visibleRequests()&quot;
             class&#x3D;&quot;requests-table__row&quot;
           &gt;
-            &lt;td&gt;{{ request.teamName }}&lt;/td&gt;
+            &lt;td&gt;{{ request.team.name }}&lt;/td&gt;
             &lt;td&gt;{{ request.requestDate | date: &#x27;short&#x27; }}&lt;/td&gt;
             &lt;td class&#x3D;&quot;requests-table__actions&quot;&gt;
               &lt;button
@@ -1140,8 +1140,8 @@ export class PlayerMembershipRequestsPageComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="page">  <header class="page-header">    <div>      <h1 class="page-title">Pedidos de adesão</h1>      <p class="page-subtitle">        Aqui vês os pedidos de adesão que as equipas te enviaram.      </p>    </div>  </header>  <div class="card">    <div *ngIf="isLoading()" class="state state--loading">      A carregar pedidos de adesão…    </div>    <div *ngIf="errorMessage()" class="state state--error">      {{ errorMessage() }}    </div>    <div *ngIf="!isLoading() && !errorMessage()">      <table        class="requests-table"        *ngIf="visibleRequests().length; else noRequests"      >        <thead>          <tr>            <th>Equipa</th>            <th>Data do pedido</th>            <th></th>          </tr>        </thead>        <tbody>          <tr            *ngFor="let request of visibleRequests()"            class="requests-table__row"          >            <td>{{ request.teamName }}</td>            <td>{{ request.requestDate | date: \'short\' }}</td>            <td class="requests-table__actions">              <button                type="button"                class="btn btn-primary"                (click)="accept(request)"              >                Aceitar              </button>              <button                type="button"                class="btn btn-secondary"                (click)="reject(request)"              >                Rejeitar              </button>            </td>          </tr>        </tbody>      </table>      <div        class="load-more-container"        *ngIf="visibleRequests().length < filteredRequests().length"      >        <button class="load-more-btn" (click)="loadMore()">          Carregar mais        </button>      </div>      <ng-template #noRequests>        <div class="state">          Neste momento não tens pedidos de adesão de equipas.        </div>      </ng-template>    </div>  </div></section></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+        var COMPONENT_TEMPLATE = '<div><section class="page">  <header class="page-header">    <div>      <h1 class="page-title">Pedidos de adesão</h1>      <p class="page-subtitle">        Aqui vês os pedidos de adesão que as equipas te enviaram.      </p>    </div>  </header>  <div class="card">    <div *ngIf="isLoading()" class="state state--loading">      A carregar pedidos de adesão…    </div>    <div *ngIf="errorMessage()" class="state state--error">      {{ errorMessage() }}    </div>    <div *ngIf="!isLoading() && !errorMessage()">      <table        class="requests-table"        *ngIf="visibleRequests().length; else noRequests"      >        <thead>          <tr>            <th>Equipa</th>            <th>Data do pedido</th>            <th></th>          </tr>        </thead>        <tbody>          <tr            *ngFor="let request of visibleRequests()"            class="requests-table__row"          >            <td>{{ request.team.name }}</td>            <td>{{ request.requestDate | date: \'short\' }}</td>            <td class="requests-table__actions">              <button                type="button"                class="btn btn-primary"                (click)="accept(request)"              >                Aceitar              </button>              <button                type="button"                class="btn btn-secondary"                (click)="reject(request)"              >                Rejeitar              </button>            </td>          </tr>        </tbody>      </table>      <div        class="load-more-container"        *ngIf="visibleRequests().length < filteredRequests().length"      >        <button class="load-more-btn" (click)="loadMore()">          Carregar mais        </button>      </div>      <ng-template #noRequests>        <div class="state">          Neste momento não tens pedidos de adesão de equipas.        </div>      </ng-template>    </div>  </div></section></div>'
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PlayerMembershipRequestsPageComponent'};
 </script>

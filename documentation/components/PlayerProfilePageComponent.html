@@ -328,6 +328,12 @@ Permite visualizar, editar, e atualizar o perfil do jogador, bem como gerir a ad
                                 <a href="#deleteAccount" >deleteAccount</a>
                             </li>
                             <li>
+                                <a href="#goToCalendar" >goToCalendar</a>
+                            </li>
+                            <li>
+                                <a href="#goToTeamProfile" >goToTeamProfile</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Protected</span>
                                 <a href="#leaveTeam" >leaveTeam</a>
                             </li>
@@ -424,6 +430,80 @@ Permite visualizar, editar, e atualizar o perfil do jogador, bem como gerir a ad
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="goToCalendar"></a>
+                    <span class="name">
+                        <span ><b>goToCalendar</b></span>
+                        <a href="#goToCalendar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToCalendar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="268"
+                                    class="link-to-prism">src/app/components/pages/player-profile/player-profile-page.component.ts:268</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToTeamProfile"></a>
+                    <span class="name">
+                        <span ><b>goToTeamProfile</b></span>
+                        <a href="#goToTeamProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToTeamProfile()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="236"
+                                    class="link-to-prism">src/app/components/pages/player-profile/player-profile-page.component.ts:236</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="leaveTeam"></a>
                     <span class="name">
                             <span class="modifier">Protected</span>
@@ -483,8 +563,8 @@ Permite visualizar, editar, e atualizar o perfil do jogador, bem como gerir a ad
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="239"
-                                    class="link-to-prism">src/app/components/pages/player-profile/player-profile-page.component.ts:239</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="243"
+                                    class="link-to-prism">src/app/components/pages/player-profile/player-profile-page.component.ts:243</a></div>
                         </td>
                     </tr>
 
@@ -940,7 +1020,7 @@ Permite visualizar, editar, e atualizar o perfil do jogador, bem como gerir a ad
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>computed(() &#x3D;&gt; !!this.player()?.idTeam)</code>
+                        <i>Default value : </i><code>computed(() &#x3D;&gt; !!this.player()?.team?.idTeam)</code>
                     </td>
                 </tr>
                     <tr>
@@ -1392,7 +1472,7 @@ export class PlayerProfilePageComponent implements OnInit, OnDestroy {
 
   private sub?: Subscription; // Assinatura do parâmetro da rota
 
-  protected readonly hasTeam &#x3D; computed(() &#x3D;&gt; !!this.player()?.idTeam); // Verifica se o jogador pertence a uma equipa
+  protected readonly hasTeam &#x3D; computed(() &#x3D;&gt; !!this.player()?.team?.idTeam); // Verifica se o jogador pertence a uma equipa
   protected readonly isOwnProfile &#x3D; computed(() &#x3D;&gt; this.player()?.playerId &#x3D;&#x3D;&#x3D; this.auth.getCurrentPlayerId()); // Verifica se o perfil é do próprio jogador
 
   ngOnInit(): void {
@@ -1501,7 +1581,7 @@ export class PlayerProfilePageComponent implements OnInit, OnDestroy {
    */
   protected leaveTeam(): void {
     const p &#x3D; this.player();
-    if (!p || !p.idTeam) {
+    if (!p || !p.team?.idTeam) {
       return;
     }
 
@@ -1570,7 +1650,7 @@ export class PlayerProfilePageComponent implements OnInit, OnDestroy {
       return;
     }
 
-    if (player.idTeam &#x3D;&#x3D; null) {
+    if (player.team?.idTeam &#x3D;&#x3D; null) {
       this.router.navigate([&#x27;/players/membership-requests&#x27;]);
     } else {
       this.router.navigate([&#x27;/team/membership-requests&#x27;]);
@@ -1584,6 +1664,10 @@ export class PlayerProfilePageComponent implements OnInit, OnDestroy {
     alert(&#x27;Aqui, no futuro, vais enviar um pedido de adesão a uma equipa.&#x27;);
   }
 
+  goToTeamProfile(): void{
+    this.router.navigate([&#x27;/team/details&#x27;, this.player()?.team?.idTeam]);
+  }
+  
   /**
    * Carrega os dados de um jogador a partir do ID ou carrega o perfil do jogador autenticado.
    */
@@ -1611,6 +1695,14 @@ export class PlayerProfilePageComponent implements OnInit, OnDestroy {
       },
     });
   }
+
+  goToCalendar(): void {
+    this.auth.getCurrentTeamId().subscribe((idTeam) &#x3D;&gt; {
+      if (idTeam) {
+        this.router.navigate([&#x60;/players/calendar/${idTeam}&#x60;]);
+      }
+    });
+  }
 }</code></pre>
     </div>
 
@@ -1626,7 +1718,8 @@ export class PlayerProfilePageComponent implements OnInit, OnDestroy {
         {{ isEditMode() ? &#x27;Cancelar&#x27; : &#x27;Editar perfil&#x27; }}
       &lt;/button&gt;
 
-      &lt;button *ngIf&#x3D;&quot;isOwnProfile()&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;deleteAccount()&quot; [disabled]&#x3D;&quot;isSaving()&quot;&gt;
+      &lt;button *ngIf&#x3D;&quot;isOwnProfile()&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;deleteAccount()&quot;
+        [disabled]&#x3D;&quot;isSaving()&quot;&gt;
         Apagar conta
       &lt;/button&gt;
     &lt;/div&gt;
@@ -1725,38 +1818,37 @@ export class PlayerProfilePageComponent implements OnInit, OnDestroy {
       &lt;h2 class&#x3D;&quot;card-title&quot;&gt;Gestão de equipa&lt;/h2&gt;
 
       &lt;p class&#x3D;&quot;side-card__text&quot; *ngIf&#x3D;&quot;hasTeam(); else noTeamSide&quot;&gt;
-        Estás atualmente na equipa &lt;strong&gt;{{ p.teamName }}&lt;/strong&gt;.
+        Estás atualmente na equipa &lt;strong&gt;{{ p.team?.name }}&lt;/strong&gt;.
       &lt;/p&gt;
 
       &lt;ng-template #noTeamSide&gt;
         &lt;p class&#x3D;&quot;side-card__text&quot;&gt;Atualmente não estás em nenhuma equipa.&lt;/p&gt;
       &lt;/ng-template&gt;
 
-      &lt;button
-        type&#x3D;&quot;button&quot;
-        class&#x3D;&quot;btn btn-warning&quot;
-        (click)&#x3D;&quot;leaveTeam()&quot;
-        [disabled]&#x3D;&quot;!hasTeam() || isSaving()&quot;
-      &gt;
+      &lt;button *ngIf&#x3D;&quot;hasTeam()&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;goToTeamProfile()&quot;&gt;
+        Vê a tua equipa
+      &lt;/button&gt;
+
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-warning&quot; (click)&#x3D;&quot;leaveTeam()&quot; [disabled]&#x3D;&quot;!hasTeam() || isSaving()&quot;&gt;
         Abandonar equipa
       &lt;/button&gt;
 
       &lt;hr class&#x3D;&quot;divider&quot; /&gt;
 
       &lt;h3 class&#x3D;&quot;side-card__subtitle&quot;&gt;Pedidos de adesão&lt;/h3&gt;
-        &lt;p class&#x3D;&quot;side-card__text&quot;&gt;
-          Aqui vais conseguir ver e gerir os pedidos de adesão.
-        &lt;/p&gt;
-        &lt;div class&#x3D;&quot;side-card__actions&quot;&gt;
-          &lt;button
-            type&#x3D;&quot;button&quot;
-            class&#x3D;&quot;btn btn-secondary&quot;
-            (click)&#x3D;&quot;onViewMembershipRequests()&quot;
-          &gt;
-            Ver pedidos de adesão
-          &lt;/button&gt;
-        &lt;/div&gt;
+      &lt;p class&#x3D;&quot;side-card__text&quot;&gt;
+        Aqui vais conseguir ver e gerir os pedidos de adesão.
+      &lt;/p&gt;
+      &lt;div class&#x3D;&quot;side-card__actions&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;onViewMembershipRequests()&quot;&gt;
+          Ver pedidos de adesão
+        &lt;/button&gt;
+      &lt;/div&gt;
     &lt;/aside&gt;
+
+    &lt;button *ngIf&#x3D;&quot;isOwnProfile()&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;goToCalendar()&quot;&gt;
+      Ver calendário
+    &lt;/button&gt;
   &lt;/div&gt;
 &lt;/section&gt;
 
@@ -1791,8 +1883,8 @@ export class PlayerProfilePageComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="page" *ngIf="player() as p">  <header class="page-header">    <div>      <h1 class="page-title">{{ p.name }}</h1>    </div>    <div class="page-header__actions">      <button *ngIf="isOwnProfile()" type="button" class="btn btn-secondary" (click)="toggleEdit()">        {{ isEditMode() ? \'Cancelar\' : \'Editar perfil\' }}      </button>      <button *ngIf="isOwnProfile()" type="button" class="btn btn-danger" (click)="deleteAccount()" [disabled]="isSaving()">        Apagar conta      </button>    </div>  </header>  <div class="layout">    <div class="card">      <h2 class="card-title">Informações do jogador</h2>      <div *ngIf="isLoading()" class="state state--loading">A carregar…</div>      <div *ngIf="errorMessage()" class="state state--error">{{ errorMessage() }}</div>      <div *ngIf="successMessage()" class="state state--success">{{ successMessage() }}</div>      <dl class="details-grid" *ngIf="!isEditMode() && !isLoading()">        <div class="details-grid__item">          <dt>Nome</dt>          <dd>{{ p.name }}</dd>        </div>        <div class="details-grid__item">          <dt>Email</dt>          <dd>{{ p.email }}</dd>        </div>        <div class="details-grid__item">          <dt>Telemóvel</dt>          <dd>{{ p.phoneNumber }}</dd>        </div>        <div class="details-grid__item">          <dt>Data de nascimento</dt>          <dd>{{ p.dateOfBirth }}</dd>        </div>        <div class="details-grid__item">          <dt>Morada</dt>          <dd>{{ p.address }}</dd>        </div>        <div class="details-grid__item">          <dt>Posição</dt>          <dd>{{ POSITION_MAP[p.position] }}</dd>        </div>        <div class="details-grid__item">          <dt>Altura</dt>          <dd>{{ p.height }} cm</dd>        </div>      </dl>      <form class="form" [formGroup]="form" *ngIf="isOwnProfile() && isEditMode() && !isLoading()">        <div class="form-grid">          <label class="form-field">            <span>Nome</span>            <input type="text" formControlName="name" />          </label>          <label class="form-field">            <span>Email</span>            <input type="email" formControlName="email" />          </label>          <label class="form-field">            <span>Telemóvel</span>            <input type="text" formControlName="phone" />          </label>          <label class="form-field">            <span>Data de nascimento (YYYY-MM-DD)</span>            <input type="text" formControlName="dateOfBirth" />          </label>          <label class="form-field form-field--full">            <span>Morada</span>            <input type="text" formControlName="address" />          </label>          <label class="form-field">            <span>Posição</span>            <input type="text" formControlName="position" />          </label>          <label class="form-field">            <span>Altura (cm)</span>            <input type="number" formControlName="height" />          </label>        </div>        <div class="form-actions">          <button type="button" class="btn btn-secondary" (click)="toggleEdit()">            Cancelar          </button>          <button type="button" class="btn btn-primary" (click)="save()" [disabled]="isSaving()">            {{ isSaving() ? \'A guardar…\' : \'Guardar alterações\' }}          </button>        </div>      </form>    </div>    <aside class="card side-card" *ngIf="isOwnProfile()">      <h2 class="card-title">Gestão de equipa</h2>      <p class="side-card__text" *ngIf="hasTeam(); else noTeamSide">        Estás atualmente na equipa <strong>{{ p.teamName }}</strong>.      </p>      <ng-template #noTeamSide>        <p class="side-card__text">Atualmente não estás em nenhuma equipa.</p>      </ng-template>      <button        type="button"        class="btn btn-warning"        (click)="leaveTeam()"        [disabled]="!hasTeam() || isSaving()"      >        Abandonar equipa      </button>      <hr class="divider" />      <h3 class="side-card__subtitle">Pedidos de adesão</h3>        <p class="side-card__text">          Aqui vais conseguir ver e gerir os pedidos de adesão.        </p>        <div class="side-card__actions">          <button            type="button"            class="btn btn-secondary"            (click)="onViewMembershipRequests()"          >            Ver pedidos de adesão          </button>        </div>    </aside>  </div></section><div *ngIf="!player() && !isLoading()" class="state state--error">  Jogador não encontrado.</div></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+        var COMPONENT_TEMPLATE = '<div><section class="page" *ngIf="player() as p">  <header class="page-header">    <div>      <h1 class="page-title">{{ p.name }}</h1>    </div>    <div class="page-header__actions">      <button *ngIf="isOwnProfile()" type="button" class="btn btn-secondary" (click)="toggleEdit()">        {{ isEditMode() ? \'Cancelar\' : \'Editar perfil\' }}      </button>      <button *ngIf="isOwnProfile()" type="button" class="btn btn-danger" (click)="deleteAccount()"        [disabled]="isSaving()">        Apagar conta      </button>    </div>  </header>  <div class="layout">    <div class="card">      <h2 class="card-title">Informações do jogador</h2>      <div *ngIf="isLoading()" class="state state--loading">A carregar…</div>      <div *ngIf="errorMessage()" class="state state--error">{{ errorMessage() }}</div>      <div *ngIf="successMessage()" class="state state--success">{{ successMessage() }}</div>      <dl class="details-grid" *ngIf="!isEditMode() && !isLoading()">        <div class="details-grid__item">          <dt>Nome</dt>          <dd>{{ p.name }}</dd>        </div>        <div class="details-grid__item">          <dt>Email</dt>          <dd>{{ p.email }}</dd>        </div>        <div class="details-grid__item">          <dt>Telemóvel</dt>          <dd>{{ p.phoneNumber }}</dd>        </div>        <div class="details-grid__item">          <dt>Data de nascimento</dt>          <dd>{{ p.dateOfBirth }}</dd>        </div>        <div class="details-grid__item">          <dt>Morada</dt>          <dd>{{ p.address }}</dd>        </div>        <div class="details-grid__item">          <dt>Posição</dt>          <dd>{{ POSITION_MAP[p.position] }}</dd>        </div>        <div class="details-grid__item">          <dt>Altura</dt>          <dd>{{ p.height }} cm</dd>        </div>      </dl>      <form class="form" [formGroup]="form" *ngIf="isOwnProfile() && isEditMode() && !isLoading()">        <div class="form-grid">          <label class="form-field">            <span>Nome</span>            <input type="text" formControlName="name" />          </label>          <label class="form-field">            <span>Email</span>            <input type="email" formControlName="email" />          </label>          <label class="form-field">            <span>Telemóvel</span>            <input type="text" formControlName="phone" />          </label>          <label class="form-field">            <span>Data de nascimento (YYYY-MM-DD)</span>            <input type="text" formControlName="dateOfBirth" />          </label>          <label class="form-field form-field--full">            <span>Morada</span>            <input type="text" formControlName="address" />          </label>          <label class="form-field">            <span>Posição</span>            <input type="text" formControlName="position" />          </label>          <label class="form-field">            <span>Altura (cm)</span>            <input type="number" formControlName="height" />          </label>        </div>        <div class="form-actions">          <button type="button" class="btn btn-secondary" (click)="toggleEdit()">            Cancelar          </button>          <button type="button" class="btn btn-primary" (click)="save()" [disabled]="isSaving()">            {{ isSaving() ? \'A guardar…\' : \'Guardar alterações\' }}          </button>        </div>      </form>    </div>    <aside class="card side-card" *ngIf="isOwnProfile()">      <h2 class="card-title">Gestão de equipa</h2>      <p class="side-card__text" *ngIf="hasTeam(); else noTeamSide">        Estás atualmente na equipa <strong>{{ p.team?.name }}</strong>.      </p>      <ng-template #noTeamSide>        <p class="side-card__text">Atualmente não estás em nenhuma equipa.</p>      </ng-template>      <button *ngIf="hasTeam()" type="button" class="btn btn-secondary" (click)="goToTeamProfile()">        Vê a tua equipa      </button>      <button type="button" class="btn btn-warning" (click)="leaveTeam()" [disabled]="!hasTeam() || isSaving()">        Abandonar equipa      </button>      <hr class="divider" />      <h3 class="side-card__subtitle">Pedidos de adesão</h3>      <p class="side-card__text">        Aqui vais conseguir ver e gerir os pedidos de adesão.      </p>      <div class="side-card__actions">        <button type="button" class="btn btn-secondary" (click)="onViewMembershipRequests()">          Ver pedidos de adesão        </button>      </div>    </aside>    <button *ngIf="isOwnProfile()" class="btn btn-secondary" (click)="goToCalendar()">      Ver calendário    </button>  </div></section><div *ngIf="!player() && !isLoading()" class="state state--error">  Jogador não encontrado.</div></div>'
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PlayerProfilePageComponent'};
 </script>
