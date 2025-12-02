@@ -591,19 +591,12 @@ Contém os dados que podem ser alterados no perfil do jogador.</p>
   height?: number;
 
   /**
-   * Indica se o jogador está associado a uma equipa ou não.
+   * A equipa do jogador (opcional).
    */
-  haveTeam: boolean;
-
-  /**
-   * ID da equipa à qual o jogador pertence (opcional, pode ser &#x60;null&#x60; ou &#x60;undefined&#x60;).
-   */
-  idTeam?: string | null;
-
-  /**
-   * Nome da equipa à qual o jogador pertence (opcional, pode ser &#x60;null&#x60; ou &#x60;undefined&#x60;).
-   */
-  teamName?: string | null;
+  team?: {
+    idTeam: string;
+    name: string;
+  } | null;
 
   /**
    * Indica se o jogador tem permissões de administrador (opcional).

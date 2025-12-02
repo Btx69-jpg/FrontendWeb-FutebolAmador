@@ -569,7 +569,7 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>computed(() &#x3D;&gt;
-    !!this.player()?.idTeam
+    !!this.player()?.team?.idTeam
   )</code>
                     </td>
                 </tr>
@@ -748,7 +748,7 @@ export class CreateTeam {
   form!: FormGroup;
 
   protected readonly hasTeam &#x3D; computed(() &#x3D;&gt;
-    !!this.player()?.idTeam
+    !!this.player()?.team?.idTeam
   );
 
   ngOnInit(): void {
@@ -886,7 +886,7 @@ export class CreateTeam {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div>    <section class="page">        <div class="card" *ngIf="!hasTeam()">            <h2 class="card-title">Criar nova equipa:</h2>            <form class="form" [formGroup]="form">                <div class="form-grid">                    <label class="form-field">                        <span>Nome</span>                        <input type="text" formControlName="name" />                    </label>                    <label class="form-field">                        <span>Descrição</span>                        <input type="text" formControlName="description" />                    </label>                    <!-- cena pra upload de icone -->                    <label class="form-field">                        <span>Nome da Localização</span>                        <input type="text" formControlName="pitchName" />                    </label>                    <label class="form-field">                        <span>Endereço</span>                        <input type="text" formControlName="pitchLocation" />                    </label>                </div>                <div class="form-actions">                    <button type="button" class="btn btn-primary" (click)="createTeam()" [disabled]="isSaving()">                        {{ isSaving() ? \'A guardar…\' : \'Criar Equipa\' }}                    </button>                </div>            </form>        </div>        <div class="card" *ngIf="hasTeam()">            <h2 class="card-title">Você já pertence à uma equipa.</h2>        </div>    </section></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CreateTeam'};
 </script>

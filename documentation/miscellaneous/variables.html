@@ -481,17 +481,14 @@ Utilizado para converter o nome da posição em um valor numérico correspondent
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
-  // Página inicial
-  { path: &#x27;&#x27;, component: Home },
-
-  // Páginas relacionadas às equipas, com proteção de acesso autenticado
-  { path: &#x27;teams&#x27;, component: Teams, canActivate: [AuthGuard] },
-  { path: &#x27;teams/:searchTerm&#x27;, component: Teams, canActivate: [AuthGuard] },
-  { path: &#x27;team/:teamId&#x27;, component: TeamProfile, canActivate: [AuthGuard] },
-  { path: &#x27;team/membership-requests&#x27;, component: TeamMembershipRequestsPageComponent, canActivate: [AuthGuard] },
-  { path: &#x27;createTeam&#x27;, component: CreateTeam, canActivate: [AuthGuard] },
-
-  // Páginas de registo e login
+  { path: &#x27;&#x27;, component: Home},
+  { path: &#x27;teams&#x27;, component: Teams, canActivate: [AuthGuard]},
+  { path: &#x27;teams/:searchTerm&#x27;, component: Teams, canActivate: [AuthGuard]},
+  { path: &#x27;team/details/:teamId&#x27;, component: TeamProfile, canActivate: [AuthGuard]}, /* cena de is admin aq tb */
+  { path: &#x27;team/membership-requests&#x27;, component: TeamMembershipRequestsPageComponent, canActivate: [AuthGuard], /*data: { requiresTeam: true },*/},
+  { path: &#x27;team/members&#x27;, component: TeamMembersPageComponent, canActivate: [AuthGuard]},
+  { path: &#x27;team/matchInvites&#x27;, component: MatchInvites, canActivate: [AuthGuard]},
+  { path: &#x27;createTeam&#x27;, component: CreateTeam, canActivate: [AuthGuard]},
   { path: &#x27;signup&#x27;, component: SignupComponent },
   { path: &#x27;login&#x27;, component: LoginComponent },
   
@@ -502,6 +499,7 @@ Utilizado para converter o nome da posição em um valor numérico correspondent
   { path: &#x27;players&#x27;, component: PlayerListPageComponent, canActivate: [AuthGuard] },
   { path: &#x27;players/me&#x27;, component: PlayerProfileRedirectComponent, canActivate: [AuthGuard] },
   { path: &#x27;players/details/:playerId&#x27;, component: PlayerProfilePageComponent, canActivate: [AuthGuard] },
+  { path: &#x27;players/calendar/:idTeam&#x27;, component: CalendarComponent, canActivate: [AuthGuard] },
 
   // Página de pedidos de adesão de jogadores
   { path: &#x27;players/membership-requests&#x27;, component: PlayerMembershipRequestsPageComponent, canActivate: [AuthGuard], data: { requiresTeam: false } },

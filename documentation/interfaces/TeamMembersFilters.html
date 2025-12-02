@@ -302,11 +302,11 @@ export class TeamMembersService {
   }
 
   promoteMember(teamId: string, playerId: string): Observable&lt;void&gt; {
-    return this.http.put&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}/members/promote/${playerId}&#x60;, {});
+    return this.http.put&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}/members/promote/${playerId}&#x60;, {}, {responseType: &#x27;text&#x27; as &#x27;json&#x27;});
   }
 
   demoteAdmin(teamId: string, adminId: string): Observable&lt;void&gt; {
-    return this.http.put&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}/members/demote/${adminId}&#x60;, {});
+    return this.http.put&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}/members/demote/${adminId}&#x60;, {}, {responseType: &#x27;text&#x27; as &#x27;json&#x27;});
   }
 }</code></pre>
     </div>
