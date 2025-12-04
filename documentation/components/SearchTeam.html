@@ -139,6 +139,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente responsável pela interface de pesquisa de equipas.
+Apresenta um formulário de filtros e redireciona o utilizador para a listagem de equipas com os critérios selecionados.</p>
+
+    </p>
 
 
 
@@ -248,12 +256,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/partials/search-team/search-team.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/partials/search-team/search-team.ts:22</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Construtor do componente.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -262,6 +272,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -276,6 +287,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Serviço de roteamento utilizado para navegar para a página de resultados.</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -315,14 +330,18 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">src/app/components/partials/search-team/search-team.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/components/partials/search-team/search-team.ts:35</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Executa a ação de pesquisa.
+Navega para a rota de listagem de equipas (<code>/teams</code>), passando os filtros preenchidos como parâmetros de consulta (query params) na URL.
+Exemplo de URL gerada: <code>/teams?name=Benfica&amp;city=Lisboa</code></p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -362,10 +381,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/partials/search-team/search-team.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/partials/search-team/search-team.ts:22</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Objeto DTO que armazena os critérios de pesquisa inseridos pelo utilizador (ex: nome, cidade).
+Os campos deste objeto são vinculados aos inputs do formulário via <code>[(ngModel)]</code>.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -380,6 +406,10 @@ import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
 import { FilterListTeamDto } from &#x27;../../../shared/Dtos/Filters/FilterListTeamDto&#x27;;
 import { FormsModule } from &#x27;@angular/forms&#x27;;
 
+/**
+ * Componente responsável pela interface de pesquisa de equipas.
+ * Apresenta um formulário de filtros e redireciona o utilizador para a listagem de equipas com os critérios selecionados.
+ */
 @Component({
   selector: &#x27;app-search-team&#x27;,
   imports: [FormsModule],
@@ -387,15 +417,28 @@ import { FormsModule } from &#x27;@angular/forms&#x27;;
   styleUrl: &#x27;./search-team.css&#x27;,
 })
 export class SearchTeam {
+  
+  /**
+   * Objeto DTO que armazena os critérios de pesquisa inseridos pelo utilizador (ex: nome, cidade).
+   * Os campos deste objeto são vinculados aos inputs do formulário via &#x60;[(ngModel)]&#x60;.
+   */
   filters &#x3D; new FilterListTeamDto();
 
+  /**
+   * Construtor do componente.
+   * @param router Serviço de roteamento utilizado para navegar para a página de resultados.
+   */
   constructor(private router: Router) {}
 
+  /**
+   * Executa a ação de pesquisa.
+   * Navega para a rota de listagem de equipas (&#x60;/teams&#x60;), passando os filtros preenchidos como parâmetros de consulta (query params) na URL.
+   * Exemplo de URL gerada: &#x60;/teams?name&#x3D;Benfica&amp;city&#x3D;Lisboa&#x60;
+   */
   search(): void {
     this.router.navigate([&#x27;/teams&#x27;], { queryParams: this.filters });
   }
-}
-</code></pre>
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
@@ -450,7 +493,7 @@ export class SearchTeam {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="search-container">    <div class="search-form">        <input #s type="text" placeholder="Team Name" (keyup.enter)="search()" [(ngModel)]="filters.NameTeam" />        <input #s type="text" placeholder="Rank Name" (keyup.enter)="search()" [(ngModel)]="filters.NameRank" />        <input #s type="text" placeholder="City" (keyup.enter)="search()" [(ngModel)]="filters.City" />    </div>    <div class="search-form">        <input #s type="number" min="0" placeholder="Min Points" (keyup.enter)="search()"            [(ngModel)]="filters.MinNumberPoints" />        <input #s type="number" min="0" placeholder="Max Points" (keyup.enter)="search()"            [(ngModel)]="filters.MaxNumberPoints" />        <input #s type="number" min="18" max="80" placeholder="Min Age" (keyup.enter)="search()"            [(ngModel)]="filters.MinAge" />        <input #s type="number" min="18" max="80" placeholder="Max Age" (keyup.enter)="search()"            [(ngModel)]="filters.MaxAge" />        <input #s type="number" min="1" placeholder="Min Players" (keyup.enter)="search()"            [(ngModel)]="filters.MinNumberPlayers" />        <input #s type="number" min="1" placeholder="Max Players" (keyup.enter)="search()"            [(ngModel)]="filters.MaxNumberPlayers" />    </div>    <button class="btn btn-primary" (click)="search()">Search</button></div></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CancelMatchComponent', 'selector': 'app-cancel-match'},{'name': 'CreateMatchInvite', 'selector': 'app-create-match-invite'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SearchTeam'};
 </script>

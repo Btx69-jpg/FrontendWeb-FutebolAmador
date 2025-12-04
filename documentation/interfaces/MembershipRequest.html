@@ -145,6 +145,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface que representa um pedido de adesão de um jogador a uma equipa (ou vice-versa).
+Utilizada para transferir as informações do pedido de adesão entre o cliente e o servidor.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -247,7 +255,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>player:     <code>literal type</code>
+                                        <code>player:         <code><a href="../classes/PlayerDto.html" target="_self" >PlayerDto</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -255,7 +263,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code>literal type</code>
+                                            <i>Type : </i>        <code><a href="../classes/PlayerDto.html" target="_self" >PlayerDto</a></code>
 
                                         </td>
                                     </tr>
@@ -264,6 +272,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Nome do jogador que fez o pedido de adesão.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -297,6 +311,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Data em que o pedido de adesão foi feito (formato de string).</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -346,7 +366,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>team:     <code>literal type</code>
+                                        <code>team:         <code><a href="../classes/TeamDto.html" target="_self" >TeamDto</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -354,7 +374,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code>literal type</code>
+                                            <i>Type : </i>        <code><a href="../classes/TeamDto.html" target="_self" >TeamDto</a></code>
 
                                         </td>
                                     </tr>
@@ -363,6 +383,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Equipa que fez o pedido de adesão.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -370,16 +396,29 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface MembershipRequest {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PlayerDto } from &quot;./Player/PlayerDto&quot;;
+import { TeamDto } from &quot;./Team/TeamDto&quot;;
+
+/**
+ * Interface que representa um pedido de adesão de um jogador a uma equipa (ou vice-versa).
+ * Utilizada para transferir as informações do pedido de adesão entre o cliente e o servidor.
+ */
+export interface MembershipRequest {
   requestId: string;
-  player: {
-    id: string;
-    name: string;
-  };
-  team: {
-    idTeam: string;
-    name: string;
-  };
+
+  /**
+   * Nome do jogador que fez o pedido de adesão.
+   */
+  player: PlayerDto;
+
+  /**
+   * Equipa que fez o pedido de adesão.
+   */
+  team: TeamDto;
+
+  /**
+   * Data em que o pedido de adesão foi feito (formato de string).
+   */
   requestDate: string;
   isPlayerSender: boolean;
 }</code></pre>

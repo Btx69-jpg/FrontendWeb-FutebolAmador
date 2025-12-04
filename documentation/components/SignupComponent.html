@@ -236,6 +236,9 @@ Permite ao utilizador criar uma nova conta ao fornecer dados como nome, email, s
                                 <a href="#fb" >fb</a>
                             </li>
                             <li>
+                                <a href="#positions" >positions</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                 <a href="#router" >router</a>
                             </li>
@@ -305,8 +308,8 @@ Permite ao utilizador criar uma nova conta ao fornecer dados como nome, email, s
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="98"
-                                    class="link-to-prism">src/app/components/pages/signup/signup.component.ts:98</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/components/pages/signup/signup.component.ts:105</a></div>
                         </td>
                     </tr>
 
@@ -380,8 +383,8 @@ Permite ao utilizador criar uma nova conta ao fornecer dados como nome, email, s
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="60"
-                                    class="link-to-prism">src/app/components/pages/signup/signup.component.ts:60</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/components/pages/signup/signup.component.ts:67</a></div>
                         </td>
                     </tr>
 
@@ -523,6 +526,42 @@ Realiza validações e, se o formulário for válido, chama o serviço de autent
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="positions"></a>
+                    <span class="name">
+                        <span ><b>positions</b></span>
+                        <a href="#positions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { label: &#x27;Avançado&#x27;, value: 0 },
+    { label: &#x27;Médio&#x27;, value: 1 },
+    { label: &#x27;Defesa&#x27;, value: 2 },
+    { label: &#x27;Guarda-redes&#x27;, value: 3 }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/pages/signup/signup.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="router"></a>
                     <span class="name">
                             <span class="modifier">Private</span>
@@ -590,7 +629,7 @@ Realiza validações e, se o formulário for válido, chama o serviço de autent
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/pages/signup/signup.component.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/pages/signup/signup.component.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -649,6 +688,13 @@ export class SignupComponent {
    * Serviço para construir o formulário de registo com suas respectivas validações.
    */
   private fb &#x3D; inject(FormBuilder);
+
+  positions &#x3D; [
+    { label: &#x27;Avançado&#x27;, value: 0 },
+    { label: &#x27;Médio&#x27;, value: 1 },
+    { label: &#x27;Defesa&#x27;, value: 2 },
+    { label: &#x27;Guarda-redes&#x27;, value: 3 }
+  ];
 
   /**
    * Formulário reativo para registo do jogador, que contém campos como nome, email, senha, etc.
@@ -798,12 +844,11 @@ export class SignupComponent {
 
       &lt;div class&#x3D;&quot;form-field&quot;&gt;
         &lt;label for&#x3D;&quot;position&quot;&gt;Posição&lt;/label&gt;
-        &lt;input id&#x3D;&quot;position&quot; formControlName&#x3D;&quot;position&quot; type&#x3D;&quot;number&quot; placeholder&#x3D;&quot;Introduz a tua posição&quot; /&gt;
+        &lt;select id&#x3D;&quot;position&quot; formControlName&#x3D;&quot;position&quot;&gt;
+          &lt;option *ngFor&#x3D;&quot;let position of positions&quot; [value]&#x3D;&quot;position.value&quot;&gt;{{ position.label }}&lt;/option&gt;
+        &lt;/select&gt;
         &lt;div *ngIf&#x3D;&quot;signupForm.controls[&#x27;position&#x27;].hasError(&#x27;required&#x27;) &amp;&amp; signupForm.controls[&#x27;position&#x27;].touched&quot;&gt;
           &lt;small style&#x3D;&quot;color: red;&quot;&gt;Posição é obrigatória.&lt;/small&gt;
-        &lt;/div&gt;
-        &lt;div *ngIf&#x3D;&quot;signupForm.controls[&#x27;position&#x27;].hasError(&#x27;pattern&#x27;) &amp;&amp; signupForm.controls[&#x27;position&#x27;].touched&quot;&gt;
-          &lt;small style&#x3D;&quot;color: red;&quot;&gt;Posição deve ser um número inteiro entre 0 e 3.&lt;/small&gt;
         &lt;/div&gt;
       &lt;/div&gt;
 
@@ -865,8 +910,8 @@ export class SignupComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="page">  <header class="page-header">    <div>      <h1 class="page-title">Criar Conta</h1>      <p class="page-subtitle">Preenche com os teus dados para criar uma conta.</p>    </div>  </header>  <div class="card">    <form [formGroup]="signupForm" (ngSubmit)="onSignup()">      <div class="form-field">        <label for="name">Nome</label>        <input id="name" formControlName="name" type="text" placeholder="Introduz o teu nome" />      </div>      <div *ngIf="signupForm.controls[\'name\'].hasError(\'required\') && signupForm.controls[\'name\'].touched">          <small style="color: red;">Nome é obrigatório.</small>        </div>      <div class="form-field">        <label for="email">E-mail</label>        <input id="email" formControlName="email" type="email" placeholder="Introduz o teu e-mail" />      </div>      <div *ngIf="signupForm.controls[\'email\'].hasError(\'required\') && signupForm.controls[\'email\'].touched">        <small style="color: red;">E-mail é obrigatório.</small>      </div>      <div *ngIf="signupForm.controls[\'email\'].hasError(\'email\') && signupForm.controls[\'email\'].touched">        <small style="color: red;">Por favor, introduz um e-mail válido.</small>      </div>      <div *ngIf="signupForm.controls[\'email\'].hasError(\'minlength\') && signupForm.controls[\'email\'].touched">        <small style="color: red;">O e-mail deve ter pelo menos 4 caracteres.</small>      </div>      <div *ngIf="signupForm.controls[\'email\'].hasError(\'maxlength\') && signupForm.controls[\'email\'].touched">        <small style="color: red;">O e-mail deve ter no máximo 256 caracteres.</small>      </div>            <div class="form-field">        <label for="password">Palavra-passe</label>        <input id="password" formControlName="password" type="password" placeholder="Introduz a tua palavra-passe" />        <div *ngIf="signupForm.controls[\'password\'].hasError(\'required\') && signupForm.controls[\'password\'].touched">          <small style="color: red;">Palavra-passe é obrigatória.</small>        </div>        <div *ngIf="signupForm.controls[\'password\'].hasError(\'minlength\') && signupForm.controls[\'password\'].touched">          <small style="color: red;">A palavra-passe deve ter pelo menos 6 caracteres.</small>        </div>        <div *ngIf="signupForm.controls[\'password\'].hasError(\'maxlength\') && signupForm.controls[\'password\'].touched">          <small style="color: red;">A palavra-passe deve ter no máximo 32 caracteres.</small>        </div>      </div>      <div class="form-field">        <label for="dateOfBirth">Data de nascimento</label>        <input id="dateOfBirth" formControlName="dateOfBirth" type="date" />        <div *ngIf="signupForm.controls[\'dateOfBirth\'].hasError(\'required\') && signupForm.controls[\'dateOfBirth\'].touched">          <small style="color: red;">Data de nascimento é obrigatória.</small>        </div>      </div>      <div class="form-field">        <label for="address">Morada</label>        <input id="address" formControlName="address" type="text" placeholder="Introduz a tua morada" />        <div *ngIf="signupForm.controls[\'address\'].hasError(\'required\') && signupForm.controls[\'address\'].touched">          <small style="color: red;">Morada é obrigatória.</small>        </div>      </div>      <div class="form-field">        <label for="phone">Telefone</label>        <input id="phone" formControlName="phone" type="text" placeholder="Introduz o teu número de telefone/telemóvel" />        <div *ngIf="signupForm.controls[\'phone\'].hasError(\'required\') && signupForm.controls[\'phone\'].touched">          <small style="color: red;">Telefone é obrigatório.</small>        </div>        <div *ngIf="signupForm.controls[\'phone\'].hasError(\'pattern\') && signupForm.controls[\'phone\'].touched">          <small style="color: red;">Por favor, introduz um número de telefone válido.</small>        </div>      </div>      <div class="form-field">        <label for="position">Posição</label>        <input id="position" formControlName="position" type="number" placeholder="Introduz a tua posição" />        <div *ngIf="signupForm.controls[\'position\'].hasError(\'required\') && signupForm.controls[\'position\'].touched">          <small style="color: red;">Posição é obrigatória.</small>        </div>        <div *ngIf="signupForm.controls[\'position\'].hasError(\'pattern\') && signupForm.controls[\'position\'].touched">          <small style="color: red;">Posição deve ser um número inteiro entre 0 e 3.</small>        </div>      </div>      <div class="form-field">        <label for="height">Altura</label>        <input id="height" formControlName="height" type="number" placeholder="Introduz a tua altura (em cm)" />        <div *ngIf="signupForm.controls[\'height\'].hasError(\'required\') && signupForm.controls[\'height\'].touched">          <small style="color: red;">Altura é obrigatória.</small>          <div *ngIf="signupForm.controls[\'height\'].hasError(\'min\') && signupForm.controls[\'height\'].touched">            <small style="color: red;">Altura mínima é 100 cm.</small>          </div>          <div *ngIf="signupForm.controls[\'height\'].hasError(\'max\') && signupForm.controls[\'height\'].touched">            <small style="color: red;">Altura máxima é 250 cm.</small>          </div>        </div>      </div>      <div class="form-actions">        <button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">Criar Conta</button>      </div>      <div *ngIf="errorMessage" style="color: red; margin-top: 10px;">        {{ errorMessage }}      </div>    </form>  </div></section></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+        var COMPONENT_TEMPLATE = '<div><section class="page">  <header class="page-header">    <div>      <h1 class="page-title">Criar Conta</h1>      <p class="page-subtitle">Preenche com os teus dados para criar uma conta.</p>    </div>  </header>  <div class="card">    <form [formGroup]="signupForm" (ngSubmit)="onSignup()">      <div class="form-field">        <label for="name">Nome</label>        <input id="name" formControlName="name" type="text" placeholder="Introduz o teu nome" />      </div>      <div *ngIf="signupForm.controls[\'name\'].hasError(\'required\') && signupForm.controls[\'name\'].touched">          <small style="color: red;">Nome é obrigatório.</small>        </div>      <div class="form-field">        <label for="email">E-mail</label>        <input id="email" formControlName="email" type="email" placeholder="Introduz o teu e-mail" />      </div>      <div *ngIf="signupForm.controls[\'email\'].hasError(\'required\') && signupForm.controls[\'email\'].touched">        <small style="color: red;">E-mail é obrigatório.</small>      </div>      <div *ngIf="signupForm.controls[\'email\'].hasError(\'email\') && signupForm.controls[\'email\'].touched">        <small style="color: red;">Por favor, introduz um e-mail válido.</small>      </div>      <div *ngIf="signupForm.controls[\'email\'].hasError(\'minlength\') && signupForm.controls[\'email\'].touched">        <small style="color: red;">O e-mail deve ter pelo menos 4 caracteres.</small>      </div>      <div *ngIf="signupForm.controls[\'email\'].hasError(\'maxlength\') && signupForm.controls[\'email\'].touched">        <small style="color: red;">O e-mail deve ter no máximo 256 caracteres.</small>      </div>            <div class="form-field">        <label for="password">Palavra-passe</label>        <input id="password" formControlName="password" type="password" placeholder="Introduz a tua palavra-passe" />        <div *ngIf="signupForm.controls[\'password\'].hasError(\'required\') && signupForm.controls[\'password\'].touched">          <small style="color: red;">Palavra-passe é obrigatória.</small>        </div>        <div *ngIf="signupForm.controls[\'password\'].hasError(\'minlength\') && signupForm.controls[\'password\'].touched">          <small style="color: red;">A palavra-passe deve ter pelo menos 6 caracteres.</small>        </div>        <div *ngIf="signupForm.controls[\'password\'].hasError(\'maxlength\') && signupForm.controls[\'password\'].touched">          <small style="color: red;">A palavra-passe deve ter no máximo 32 caracteres.</small>        </div>      </div>      <div class="form-field">        <label for="dateOfBirth">Data de nascimento</label>        <input id="dateOfBirth" formControlName="dateOfBirth" type="date" />        <div *ngIf="signupForm.controls[\'dateOfBirth\'].hasError(\'required\') && signupForm.controls[\'dateOfBirth\'].touched">          <small style="color: red;">Data de nascimento é obrigatória.</small>        </div>      </div>      <div class="form-field">        <label for="address">Morada</label>        <input id="address" formControlName="address" type="text" placeholder="Introduz a tua morada" />        <div *ngIf="signupForm.controls[\'address\'].hasError(\'required\') && signupForm.controls[\'address\'].touched">          <small style="color: red;">Morada é obrigatória.</small>        </div>      </div>      <div class="form-field">        <label for="phone">Telefone</label>        <input id="phone" formControlName="phone" type="text" placeholder="Introduz o teu número de telefone/telemóvel" />        <div *ngIf="signupForm.controls[\'phone\'].hasError(\'required\') && signupForm.controls[\'phone\'].touched">          <small style="color: red;">Telefone é obrigatório.</small>        </div>        <div *ngIf="signupForm.controls[\'phone\'].hasError(\'pattern\') && signupForm.controls[\'phone\'].touched">          <small style="color: red;">Por favor, introduz um número de telefone válido.</small>        </div>      </div>      <div class="form-field">        <label for="position">Posição</label>        <select id="position" formControlName="position">          <option *ngFor="let position of positions" [value]="position.value">{{ position.label }}</option>        </select>        <div *ngIf="signupForm.controls[\'position\'].hasError(\'required\') && signupForm.controls[\'position\'].touched">          <small style="color: red;">Posição é obrigatória.</small>        </div>      </div>      <div class="form-field">        <label for="height">Altura</label>        <input id="height" formControlName="height" type="number" placeholder="Introduz a tua altura (em cm)" />        <div *ngIf="signupForm.controls[\'height\'].hasError(\'required\') && signupForm.controls[\'height\'].touched">          <small style="color: red;">Altura é obrigatória.</small>          <div *ngIf="signupForm.controls[\'height\'].hasError(\'min\') && signupForm.controls[\'height\'].touched">            <small style="color: red;">Altura mínima é 100 cm.</small>          </div>          <div *ngIf="signupForm.controls[\'height\'].hasError(\'max\') && signupForm.controls[\'height\'].touched">            <small style="color: red;">Altura máxima é 250 cm.</small>          </div>        </div>      </div>      <div class="form-actions">        <button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">Criar Conta</button>      </div>      <div *ngIf="errorMessage" style="color: red; margin-top: 10px;">        {{ errorMessage }}      </div>    </form>  </div></section></div>'
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CancelMatchComponent', 'selector': 'app-cancel-match'},{'name': 'CreateMatchInvite', 'selector': 'app-create-match-invite'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SignupComponent'};
 </script>

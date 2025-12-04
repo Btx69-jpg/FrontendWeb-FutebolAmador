@@ -169,6 +169,7 @@ Contém o layout básico, incluindo o componente de navegação lateral e a lóg
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
                                 <code><a href="../miscellaneous/variables.html#authInterceptor" target="_self" >authInterceptor</a></code>
+                            <code>&#x27;pt-PT&#x27;</code>
                 </td>
             </tr>
 
@@ -262,7 +263,7 @@ Contém o layout básico, incluindo o componente de navegação lateral e a lóg
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/app.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/app.ts:50</a></div>
                             </td>
                         </tr>
 
@@ -311,7 +312,7 @@ mas o <code>teamService</code> é injetado para ser utilizado dentro do componen
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/app.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/app.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -349,7 +350,7 @@ Inicialmente é um array vazio, mas será preenchido com os dados das equipas.</
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/app.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/app.ts:50</a></div>
                         </td>
                     </tr>
 
@@ -389,7 +390,7 @@ Utilizado para obter dados e realizar ações relacionadas às equipas.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/app.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/app.ts:38</a></div>
                         </td>
                     </tr>
 
@@ -415,6 +416,11 @@ import { TeamService } from &#x27;./services/team.service&#x27;;
 import { SidebarComponent } from &#x27;./components/partials/nav/sidebar/sidebar.component&#x27;;
 import { HTTP_INTERCEPTORS } from &#x27;@angular/common/http&#x27;;
 import { authInterceptor } from &#x27;./core/interceptors/auth.interceptor&#x27;;
+import { LOCALE_ID } from &#x27;@angular/core&#x27;;
+import { registerLocaleData } from &#x27;@angular/common&#x27;;
+import localePt from &#x27;@angular/common/locales/pt&#x27;;
+
+registerLocaleData(localePt);
 
 /**
  * Componente principal da aplicação.
@@ -432,6 +438,7 @@ import { authInterceptor } from &#x27;./core/interceptors/auth.interceptor&#x27;
      * O &#x60;multi: true&#x60; permite que múltiplos interceptadores sejam usados ao mesmo tempo.
      */
     { provide: HTTP_INTERCEPTORS, useValue: authInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: &#x27;pt-PT&#x27; }
   ]
 })
 export class App {
@@ -500,7 +507,7 @@ export class App {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="layout">  <app-sidebar></app-sidebar>  <main class="content">    <router-outlet></router-outlet>  </main></div></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CancelMatchComponent', 'selector': 'app-cancel-match'},{'name': 'CreateMatchInvite', 'selector': 'app-create-match-invite'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'App'};
 </script>

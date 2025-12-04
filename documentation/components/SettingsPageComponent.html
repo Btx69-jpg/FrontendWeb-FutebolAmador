@@ -566,53 +566,7 @@ export class SettingsPageComponent {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;settings-page&quot;&gt;
-
-  &lt;h1 class&#x3D;&quot;settings-title&quot;&gt;Definições&lt;/h1&gt;
-  &lt;p class&#x3D;&quot;settings-subtitle&quot;&gt;
-    Ajusta as preferências da aplicação. Estas definições são guardadas localmente.
-  &lt;/p&gt;
-
-  &lt;div class&#x3D;&quot;settings-card&quot;&gt;
-
-    &lt;div class&#x3D;&quot;setting-item&quot;&gt;
-      &lt;div class&#x3D;&quot;setting-info&quot;&gt;
-        &lt;h3&gt;Modo escuro&lt;/h3&gt;
-        &lt;p&gt;Alterna entre modo claro e escuro.&lt;/p&gt;
-      &lt;/div&gt;
-
-      &lt;label class&#x3D;&quot;switch&quot;&gt;
-        &lt;input type&#x3D;&quot;checkbox&quot; [checked]&#x3D;&quot;darkMode()&quot; (change)&#x3D;&quot;toggleDarkMode()&quot; /&gt;
-        &lt;span class&#x3D;&quot;slider&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-
-    &lt;div class&#x3D;&quot;setting-item&quot;&gt;
-      &lt;div class&#x3D;&quot;setting-info&quot;&gt;
-        &lt;h3&gt;Notificações&lt;/h3&gt;
-        &lt;p&gt;Permitir notificações (efeito visual para já).&lt;/p&gt;
-      &lt;/div&gt;
-
-      &lt;label class&#x3D;&quot;switch&quot;&gt;
-        &lt;input type&#x3D;&quot;checkbox&quot; [checked]&#x3D;&quot;notificationsEnabled()&quot; (change)&#x3D;&quot;toggleNotifications()&quot; /&gt;
-        &lt;span class&#x3D;&quot;slider&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-
-    &lt;div class&#x3D;&quot;setting-item&quot;&gt;
-      &lt;div class&#x3D;&quot;setting-info&quot;&gt;
-        &lt;h3&gt;Idioma&lt;/h3&gt;
-        &lt;p&gt;Idioma principal da interface.&lt;/p&gt;
-      &lt;/div&gt;
-
-      &lt;div class&#x3D;&quot;lang-options&quot;&gt;
-        &lt;button class&#x3D;&quot;lang-btn&quot; [class.active]&#x3D;&quot;language() &#x3D;&#x3D;&#x3D; &#x27;pt&#x27;&quot; (click)&#x3D;&quot;setLanguage(&#x27;pt&#x27;)&quot;&gt;PT&lt;/button&gt;
-        &lt;button class&#x3D;&quot;lang-btn&quot; [class.active]&#x3D;&quot;language() &#x3D;&#x3D;&#x3D; &#x27;en&#x27;&quot; (click)&#x3D;&quot;setLanguage(&#x27;en&#x27;)&quot;&gt;EN&lt;/button&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/section&gt;</code></pre>
+        <pre class="line-numbers"><code class="language-html"></code></pre>
     </div>
 
 
@@ -641,8 +595,8 @@ export class SettingsPageComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="settings-page">  <h1 class="settings-title">Definições</h1>  <p class="settings-subtitle">    Ajusta as preferências da aplicação. Estas definições são guardadas localmente.  </p>  <div class="settings-card">    <div class="setting-item">      <div class="setting-info">        <h3>Modo escuro</h3>        <p>Alterna entre modo claro e escuro.</p>      </div>      <label class="switch">        <input type="checkbox" [checked]="darkMode()" (change)="toggleDarkMode()" />        <span class="slider"></span>      </label>    </div>    <div class="setting-item">      <div class="setting-info">        <h3>Notificações</h3>        <p>Permitir notificações (efeito visual para já).</p>      </div>      <label class="switch">        <input type="checkbox" [checked]="notificationsEnabled()" (change)="toggleNotifications()" />        <span class="slider"></span>      </label>    </div>    <div class="setting-item">      <div class="setting-info">        <h3>Idioma</h3>        <p>Idioma principal da interface.</p>      </div>      <div class="lang-options">        <button class="lang-btn" [class.active]="language() === \'pt\'" (click)="setLanguage(\'pt\')">PT</button>        <button class="lang-btn" [class.active]="language() === \'en\'" (click)="setLanguage(\'en\')">EN</button>      </div>    </div>  </div></section></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+        var COMPONENT_TEMPLATE = '<div></div>'
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CancelMatchComponent', 'selector': 'app-cancel-match'},{'name': 'CreateMatchInvite', 'selector': 'app-create-match-invite'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SettingsPageComponent'};
 </script>
