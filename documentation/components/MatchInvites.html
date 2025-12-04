@@ -282,7 +282,7 @@ Permite aceitar, recusar ou iniciar negociação de convites.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, matchInviteService: <a href="../injectables/MatchInviteService.html" target="_self">MatchInviteService</a>)</code>
+<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, matchInviteService: <a href="../injectables/MatchInviteService.html" target="_self">MatchInviteService</a>, router: Router)</code>
                     </td>
                 </tr>
                         <tr>
@@ -328,6 +328,18 @@ Permite aceitar, recusar ou iniciar negociação de convites.</p>
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -366,8 +378,8 @@ Permite aceitar, recusar ou iniciar negociação de convites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="68"
-                                    class="link-to-prism">src/app/components/pages/match-invites/match-invites.ts:68</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/components/pages/match-invites/match-invites.ts:72</a></div>
                         </td>
                     </tr>
 
@@ -442,8 +454,8 @@ Permite aceitar, recusar ou iniciar negociação de convites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">src/app/components/pages/match-invites/match-invites.ts:48</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/components/pages/match-invites/match-invites.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -516,8 +528,8 @@ Permite aceitar, recusar ou iniciar negociação de convites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="107"
-                                    class="link-to-prism">src/app/components/pages/match-invites/match-invites.ts:107</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">src/app/components/pages/match-invites/match-invites.ts:113</a></div>
                         </td>
                     </tr>
 
@@ -590,8 +602,8 @@ Permite aceitar, recusar ou iniciar negociação de convites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">src/app/components/pages/match-invites/match-invites.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/app/components/pages/match-invites/match-invites.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -629,8 +641,8 @@ Permite aceitar, recusar ou iniciar negociação de convites.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="89"
-                                    class="link-to-prism">src/app/components/pages/match-invites/match-invites.ts:89</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/app/components/pages/match-invites/match-invites.ts:94</a></div>
                         </td>
                     </tr>
 
@@ -859,9 +871,9 @@ Permite aceitar, recusar ou iniciar negociação de convites.</p>
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, computed, signal } from &#x27;@angular/core&#x27;;
 import { AuthService } from &#x27;../../../services/auth.service&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
-import { SendMatchInviteDto } from &#x27;../../../shared/Dtos/Match/SendMatchInviteDto&#x27;;
 import { MatchInviteService } from &#x27;../../../services/match-invite.service&#x27;;
 import { InfoMatchInviteDto } from &#x27;../../../shared/Dtos/Match/InfoMatchInviteDto&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 
 /**
  * Componente responsável pela listagem e gestão de convites de partida recebidos pela equipa.
@@ -882,7 +894,11 @@ export class MatchInvites {
 
   matchInvites &#x3D; signal&lt;InfoMatchInviteDto[]&gt;([]);
 
-  constructor(private auth: AuthService, private matchInviteService: MatchInviteService) {}
+  constructor(
+    private auth: AuthService,
+    private matchInviteService: MatchInviteService,
+    private router: Router
+  ) {}
 
   /**
    * Inicializa o componente, identificando a equipa do utilizador e carregando os seus convites.
@@ -931,6 +947,7 @@ export class MatchInvites {
       this.matchInviteService.acceptMatchInvite(this.teamId()!, invite.id).subscribe({
         next: () &#x3D;&gt; {
           this.isLoading.set(false);
+          this.loadMatchInvites(this.teamId()!);
         },
         error: () &#x3D;&gt; {
           this.errorMessage.set(&#x27;Não foi possível aceitar convite de partida.&#x27;);
@@ -949,6 +966,7 @@ export class MatchInvites {
       this.matchInviteService.refuseMatchInvite(this.teamId()!, invite.id).subscribe({
         next: () &#x3D;&gt; {
           this.isLoading.set(false);
+          this.loadMatchInvites(this.teamId()!);
         },
         error: () &#x3D;&gt; {
           this.errorMessage.set(&#x27;Não foi possível recusar convite de partida.&#x27;);
@@ -962,8 +980,13 @@ export class MatchInvites {
    * Inicia o processo de negociação (contraproposta) para um convite.
    * @param invite Objeto contendo os dados do convite.
    */
-  negotiate(invite: InfoMatchInviteDto) {}
-}</code></pre>
+  negotiate(invite: InfoMatchInviteDto) {
+    this.router.navigate([&#x27;/team/negotiateMatchInvite&#x27;, invite.sender.idTeam], {
+      state: { invite: invite },
+    });
+  }
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
@@ -1016,11 +1039,11 @@ export class MatchInvites {
                 Aceitar
               &lt;/button&gt;
 
-              &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;refuse(invite)&quot;&gt;
+              &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;negotiate(invite)&quot;&gt;
                 Negociar
               &lt;/button&gt;
 
-              &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;negotiate(invite)&quot;&gt;
+              &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;refuse(invite)&quot;&gt;
                 Recusar
               &lt;/button&gt;
             &lt;/td&gt;
@@ -1062,7 +1085,7 @@ export class MatchInvites {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="page">  <header class="page-header">    <div>      <h1 class="page-title">Convites de Partida</h1>    </div>    <!-- <div class="page-header__actions">      <input        type="search"        class="search-input"        placeholder="Procurar por equipa"        [value]="searchTerm()"        (input)="onSearchTermChange($any($event.target).value)"      />    </div> -->  </header>  <div class="card">    <div *ngIf="isLoading()" class="state state--loading">      A carregar convites de partida…    </div>    <div *ngIf="errorMessage()" class="state state--error">      {{ errorMessage() }}    </div>    <div *ngIf="!isLoading() && !errorMessage()">      <table class="invites-table" *ngIf="matchInvites().length; else noInvites">        <thead>          <tr>            <th>Equipa 1</th>            <th>Equipa 2</th>            <th>Game Date</th>            <th>Location</th>            <th class="invites-table__actions-col"></th>          </tr>        </thead>        <tbody>          <tr *ngFor="let invite of matchInvites()">            <td>{{ invite.sender.name }}</td>            <td>{{ invite.receiver.name }}</td>            <td>{{ invite.gameDate }}</td>            <td>{{ invite.namePitch }}</td>            <td class="members-table__actions">              <button type="button" class="btn btn-secondary" (click)="accept(invite)">                Aceitar              </button>              <button type="button" class="btn btn-secondary" (click)="refuse(invite)">                Negociar              </button>              <button type="button" class="btn btn-danger" (click)="negotiate(invite)">                Recusar              </button>            </td>          </tr>        </tbody>      </table>      <ng-template #noInvites>        <div class="state">Não há convites para apresentar.</div>      </ng-template>    </div>  </div></section></div>'
+        var COMPONENT_TEMPLATE = '<div><section class="page">  <header class="page-header">    <div>      <h1 class="page-title">Convites de Partida</h1>    </div>    <!-- <div class="page-header__actions">      <input        type="search"        class="search-input"        placeholder="Procurar por equipa"        [value]="searchTerm()"        (input)="onSearchTermChange($any($event.target).value)"      />    </div> -->  </header>  <div class="card">    <div *ngIf="isLoading()" class="state state--loading">      A carregar convites de partida…    </div>    <div *ngIf="errorMessage()" class="state state--error">      {{ errorMessage() }}    </div>    <div *ngIf="!isLoading() && !errorMessage()">      <table class="invites-table" *ngIf="matchInvites().length; else noInvites">        <thead>          <tr>            <th>Equipa 1</th>            <th>Equipa 2</th>            <th>Game Date</th>            <th>Location</th>            <th class="invites-table__actions-col"></th>          </tr>        </thead>        <tbody>          <tr *ngFor="let invite of matchInvites()">            <td>{{ invite.sender.name }}</td>            <td>{{ invite.receiver.name }}</td>            <td>{{ invite.gameDate }}</td>            <td>{{ invite.namePitch }}</td>            <td class="members-table__actions">              <button type="button" class="btn btn-secondary" (click)="accept(invite)">                Aceitar              </button>              <button type="button" class="btn btn-secondary" (click)="negotiate(invite)">                Negociar              </button>              <button type="button" class="btn btn-danger" (click)="refuse(invite)">                Recusar              </button>            </td>          </tr>        </tbody>      </table>      <ng-template #noInvites>        <div class="state">Não há convites para apresentar.</div>      </ng-template>    </div>  </div></section></div>'
     var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CancelMatchComponent', 'selector': 'app-cancel-match'},{'name': 'CreateMatchInvite', 'selector': 'app-create-match-invite'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MatchInvites'};

@@ -201,7 +201,7 @@ Permite listar, enviar, aceitar, recusar e negociar convites entre equipas.</p>
                                 <a href="#refuseMatchInvite" >refuseMatchInvite</a>
                             </li>
                             <li>
-                                <a href="#sendMatchInvites" >sendMatchInvites</a>
+                                <a href="#sendMatchInvite" >sendMatchInvite</a>
                             </li>
                         </ul>
                     </td>
@@ -424,29 +424,70 @@ Converte os filtros (datas, nomes) em parâmetros de consulta HTTP.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>negotiateMatchInvite()</code>
+<code>negotiateMatchInvite(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: <a href="../classes/SendMatchInviteDto.html" target="_self">SendMatchInviteDto</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="110"
-                                    class="link-to-prism">src/app/services/match-invite.service.ts:110</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">src/app/services/match-invite.service.ts:118</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Inicia ou processa a negociação de um convite existente (contraproposta).
-(Método placeholder aguardando implementação lógica).</p>
+                        <div class="io-description"><p>Inicia ou processa a negociação de um convite existente (contraproposta).</p>
 </div>
 
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>teamId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../classes/SendMatchInviteDto.html" target="_self" >SendMatchInviteDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                         </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -549,16 +590,16 @@ Converte os filtros (datas, nomes) em parâmetros de consulta HTTP.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="sendMatchInvites"></a>
+                    <a name="sendMatchInvite"></a>
                     <span class="name">
-                        <span ><b>sendMatchInvites</b></span>
-                        <a href="#sendMatchInvites"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>sendMatchInvite</b></span>
+                        <a href="#sendMatchInvite"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>sendMatchInvites(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: <a href="../classes/SendMatchInviteDto.html" target="_self">SendMatchInviteDto</a>)</code>
+<code>sendMatchInvite(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: <a href="../classes/SendMatchInviteDto.html" target="_self">SendMatchInviteDto</a>)</code>
                 </td>
             </tr>
 
@@ -840,7 +881,7 @@ export class MatchInviteService {
    * @param data DTO contendo os dados do convite (adversário, data, local).
    * @returns Um Observable vazio (&#x60;void&#x60;) indicando a conclusão da operação.
    */
-  sendMatchInvites(teamId: string, data: SendMatchInviteDto): Observable&lt;void&gt; {
+  sendMatchInvite(teamId: string, data: SendMatchInviteDto): Observable&lt;void&gt; {
     return this.http.post&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}/match-invites&#x60;, data);
   }
 
@@ -870,15 +911,26 @@ export class MatchInviteService {
    * @returns Um Observable vazio (&#x60;void&#x60;) indicando a conclusão da operação.
    */
   refuseMatchInvite(teamId: string, idMatchInvite: string): Observable&lt;void&gt; {
-    return this.http.delete&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}/RefuseMatchInvite/${idMatchInvite}&#x60;);
+    const body &#x3D; JSON.stringify(idMatchInvite);
+
+    const params &#x3D; new HttpParams().set(&#x27;idTeam&#x27;, teamId);
+    const headers &#x3D; new HttpHeaders({ &#x27;Content-Type&#x27;: &#x27;application/json&#x27; });
+
+    return this.http.delete&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}/RefuseMatchInvite/&#x60;, {
+      headers,
+      params,
+      body,
+    });
   }
 
   /**
    * Inicia ou processa a negociação de um convite existente (contraproposta).
-   * (Método placeholder aguardando implementação lógica).
    */
-  negotiateMatchInvite() {}
-}</code></pre>
+  negotiateMatchInvite(teamId: string, data: SendMatchInviteDto): Observable&lt;any&gt; {
+    return this.http.put&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}/Negociate/&#x60;, data);
+  }
+}
+</code></pre>
     </div>
 
 </div>
