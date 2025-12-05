@@ -143,6 +143,12 @@
                             <a href="#environment" title="src/app/environments/environment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
                         </li>
                         <li>
+                            <a href="#MATCH_STATUS" title="src/app/shared/constants/match-status-map.ts" ><b>MATCH_STATUS</b>&nbsp;&nbsp;&nbsp;(src/.../match-status-map.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MATCH_STATUS_MAP_TONUMBER" title="src/app/shared/constants/match-status-map-to-number.ts" ><b>MATCH_STATUS_MAP_TONUMBER</b>&nbsp;&nbsp;&nbsp;(src/.../match-status-map-to-number.ts)</a>
+                        </li>
+                        <li>
                             <a href="#POSITION_MAP" title="src/app/shared/constants/position-map.ts" ><b>POSITION_MAP</b>&nbsp;&nbsp;&nbsp;(src/.../position-map.ts)</a>
                         </li>
                         <li>
@@ -377,6 +383,90 @@ Define variáveis específicas para o ambiente de produção, como o estado de p
         </tbody>
     </table>
 </section>
+    <h3>src/app/shared/constants/match-status-map.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MATCH_STATUS"></a>
+                    <span class="name">
+                        <span ><b>MATCH_STATUS</b></span>
+                        <a href="#MATCH_STATUS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Record&lt;number, string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+   0: &#x27;Scheduled&#x27;,
+   1: &#x27;In Progress&#x27;,
+   2: &#x27;Done&#x27;,
+   3: &#x27;Post Poned&#x27;,
+   4: &#x27;Cancelled&#x27;
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mapeamento dos valores numéricos para os estados das partidas.
+Utilizado para converter um valor numérico em seu nome correspondente de estado de partida.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/shared/constants/match-status-map-to-number.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MATCH_STATUS_MAP_TONUMBER"></a>
+                    <span class="name">
+                        <span ><b>MATCH_STATUS_MAP_TONUMBER</b></span>
+                        <a href="#MATCH_STATUS_MAP_TONUMBER"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Record&lt;string, number&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  &#x27;Scheduled&#x27;: 0,
+  &#x27;In Progress&#x27;: 1,
+  &#x27;Done&#x27;: 2,
+  &#x27;Post Poned&#x27;: 3,
+  &#x27;Cancelled&#x27;: 4
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mapeamento dos estados das partidas para valores numéricos.
+Utilizado para converter o estado da partida em um valor numérico correspondente.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
     <h3>src/app/shared/constants/position-map.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -484,11 +574,13 @@ Utilizado para converter o nome da posição em um valor numérico correspondent
   { path: &#x27;&#x27;, component: Home},
   { path: &#x27;teams&#x27;, component: Teams, canActivate: [AuthGuard]},
   { path: &#x27;teams/:searchTerm&#x27;, component: Teams, canActivate: [AuthGuard]},
-  { path: &#x27;team/details/:teamId&#x27;, component: TeamProfile, canActivate: [AuthGuard]}, /* cena de is admin aq tb */
-  { path: &#x27;team/membership-requests&#x27;, component: TeamMembershipRequestsPageComponent, canActivate: [AuthGuard], /*data: { requiresTeam: true },*/},
-  { path: &#x27;team/members&#x27;, component: TeamMembersPageComponent, canActivate: [AuthGuard]},
-  { path: &#x27;team/matchInvites&#x27;, component: MatchInvites, canActivate: [AuthGuard]},
-  { path: &#x27;createTeam&#x27;, component: CreateTeam, canActivate: [AuthGuard]},
+  { path: &#x27;team/details/:teamId&#x27;, component: TeamProfile, canActivate: [AuthGuard]},
+  { path: &#x27;team/membership-requests&#x27;, component: TeamMembershipRequestsPageComponent, canActivate: [AuthGuard]},
+  { path: &#x27;team/members&#x27;, component: TeamMembersPageComponent, canActivate: [AuthGuard], data: { isAdmin: true }},
+  { path: &#x27;team/matchInvites&#x27;, component: MatchInvites, canActivate: [AuthGuard], data: { isAdmin: true }},
+  { path: &#x27;team/createMatchInvite/:teamId&#x27;, component: CreateMatchInvite, canActivate: [AuthGuard], data: { isAdmin: true }},
+  { path: &#x27;team/negotiateMatchInvite/:teamId&#x27;, component: CreateMatchInvite, canActivate: [AuthGuard], data: { isAdmin: true }},
+  { path: &#x27;createTeam&#x27;, component: CreateTeam, canActivate: [AuthGuard], data: { requiresTeam: false }},
   { path: &#x27;signup&#x27;, component: SignupComponent },
   { path: &#x27;login&#x27;, component: LoginComponent },
   
@@ -496,19 +588,20 @@ Utilizado para converter o nome da posição em um valor numérico correspondent
   { path: &#x27;logout&#x27;, component: LogoutComponent, canActivate: [AuthGuard] },
 
   // Páginas relacionadas aos jogadores
-  { path: &#x27;players&#x27;, component: PlayerListPageComponent, canActivate: [AuthGuard] },
+  { path: &#x27;players&#x27;, component: PlayerListPageComponent, canActivate: [AuthGuard], data: { isAdmin: true }},
   { path: &#x27;players/me&#x27;, component: PlayerProfileRedirectComponent, canActivate: [AuthGuard] },
-  { path: &#x27;players/details/:playerId&#x27;, component: PlayerProfilePageComponent, canActivate: [AuthGuard] },
-  { path: &#x27;players/calendar/:idTeam&#x27;, component: CalendarComponent, canActivate: [AuthGuard] },
+  { path: &#x27;players/details/:playerId&#x27;, component: PlayerProfilePageComponent, canActivate: [AuthGuard]},
+  { path: &#x27;players/calendar/:idTeam&#x27;, component: CalendarComponent, canActivate: [AuthGuard], data: { isAdmin: true }},
+  { path: &#x27;players/calendar/:idTeam/cancel-match/:idMatch&#x27;, component: CancelMatchComponent, canActivate: [AuthGuard], data: { isAdmin: true }},
 
   // Página de pedidos de adesão de jogadores
-  { path: &#x27;players/membership-requests&#x27;, component: PlayerMembershipRequestsPageComponent, canActivate: [AuthGuard], data: { requiresTeam: false } },
+  { path: &#x27;players/membership-requests&#x27;, component: PlayerMembershipRequestsPageComponent, canActivate: [AuthGuard] },
 
   // Página de definições do utilizador
   { path: &#x27;settings&#x27;, component: SettingsPageComponent },
 
-  // Redirecionamento para a página de jogadores em caso de rota inválida
-  { path: &#x27;**&#x27;, redirectTo: &#x27;players&#x27; },
+  // Redirecionamento para a home page em caso de rota inválida
+  { path: &#x27;**&#x27;, redirectTo: &#x27;&#x27; },
 ]</code>
                     </td>
                 </tr>

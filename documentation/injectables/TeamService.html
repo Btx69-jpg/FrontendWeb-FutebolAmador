@@ -138,6 +138,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Serviço responsável pelas operações CRUD (Create, Read, Update, Delete) e pesquisa de equipas.</p>
+
+            </p>
 
 
 
@@ -226,14 +233,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="20"
-                                    class="link-to-prism">src/app/services/team.service.ts:20</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/services/team.service.ts:41</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Cria uma nova equipa no sistema.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -244,6 +253,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -258,6 +268,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>DTO contendo os dados necessários para criar a equipa (nome, cidade, cores, etc.).</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -267,7 +281,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable com a resposta da API (pode conter o ID da nova equipa ou void).</p>
+
                             </div>
                 </td>
             </tr>
@@ -293,14 +308,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/app/services/team.service.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/services/team.service.ts:60</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Elimina uma equipa do sistema.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -311,6 +328,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -325,6 +343,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID da equipa a ser eliminada.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -334,7 +356,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable vazio (<code>void</code>) indicando a conclusão da operação.</p>
+
                             </div>
                 </td>
             </tr>
@@ -360,14 +383,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/app/services/team.service.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/services/team.service.ts:32</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Obtém os detalhes completos de uma equipa através do seu ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -378,6 +403,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -392,6 +418,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID da equipa a consultar.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -401,7 +431,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable com os detalhes da equipa (<code>TeamDetailsDto</code>).</p>
+
                             </div>
                 </td>
             </tr>
@@ -427,14 +458,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">src/app/services/team.service.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/app/services/team.service.ts:70</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Pesquisa equipas com base em critérios de filtro.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -445,6 +478,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -459,6 +493,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID da equipa atual (contexto da pesquisa).</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>filter</td>
@@ -471,6 +509,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>(Opcional) DTO contendo os filtros de pesquisa.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -480,7 +522,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable com os resultados da pesquisa.</p>
+
                             </div>
                 </td>
             </tr>
@@ -506,14 +549,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="24"
-                                    class="link-to-prism">src/app/services/team.service.ts:24</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/services/team.service.ts:51</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Atualiza as informações de uma equipa existente.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -524,6 +569,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -538,6 +584,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID da equipa a ser atualizada.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>data</td>
@@ -550,6 +600,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>DTO com os novos dados da equipa.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -559,7 +613,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable vazio (<code>void</code>) indicando a conclusão da operação.</p>
+
                             </div>
                 </td>
             </tr>
@@ -596,10 +651,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/team.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/services/team.service.ts:25</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL base da API para o endpoint de Equipas.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -628,10 +689,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/team.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/team.service.ts:20</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Serviço HTTP utilizado para realizar requisições à API.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -649,29 +716,67 @@ import { TeamDetailsDto } from &#x27;../shared/Dtos/Team/TeamDetailsDto&#x27;;
 import { CreateTeamDto } from &#x27;../shared/Dtos/Team/CreateTeamDto&#x27;;
 import { FilterListTeamDto } from &#x27;../shared/Dtos/Filters/FilterListTeamDto&#x27;;
 
+/**
+ * Serviço responsável pelas operações CRUD (Create, Read, Update, Delete) e pesquisa de equipas.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class TeamService {
+  
+  /**
+   * Serviço HTTP utilizado para realizar requisições à API.
+   */
   private http &#x3D; inject(HttpClient);
+
+  /**
+   * URL base da API para o endpoint de Equipas.
+   */
   private baseUrl &#x3D; environment.apiBaseUrl + &#x27;/Team&#x27;;
 
+  /**
+   * Obtém os detalhes completos de uma equipa através do seu ID.
+   * @param teamId O ID da equipa a consultar.
+   * @returns Um Observable com os detalhes da equipa (&#x60;TeamDetailsDto&#x60;).
+   */
   getTeamById(teamId: string): Observable&lt;TeamDetailsDto&gt; {
     return this.http.get&lt;TeamDetailsDto&gt;(&#x60;${this.baseUrl}/${teamId}&#x60;);
   }
 
+  /**
+   * Cria uma nova equipa no sistema.
+   * @param data DTO contendo os dados necessários para criar a equipa (nome, cidade, cores, etc.).
+   * @returns Um Observable com a resposta da API (pode conter o ID da nova equipa ou void).
+   */
   createTeam(data: CreateTeamDto): Observable&lt;any&gt;{
     return this.http.post&lt;void&gt;(&#x60;${this.baseUrl}&#x60;, data);
   }
 
+  /**
+   * Atualiza as informações de uma equipa existente.
+   * @param teamId O ID da equipa a ser atualizada.
+   * @param data DTO com os novos dados da equipa.
+   * @returns Um Observable vazio (&#x60;void&#x60;) indicando a conclusão da operação.
+   */
   updateTeam(teamId: string, data: CreateTeamDto): Observable&lt;void&gt; {
     return this.http.put&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}&#x60;, data, {responseType: &#x27;text&#x27; as &#x27;json&#x27;});
   }
 
+  /**
+   * Elimina uma equipa do sistema.
+   * @param teamId O ID da equipa a ser eliminada.
+   * @returns Um Observable vazio (&#x60;void&#x60;) indicando a conclusão da operação.
+   */
   deleteTeam(teamId: string): Observable&lt;void&gt; {
     return this.http.delete&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}&#x60;);
   }
 
+  /**
+   * Pesquisa equipas com base em critérios de filtro.
+   * @param teamId O ID da equipa atual (contexto da pesquisa).
+   * @param filter (Opcional) DTO contendo os filtros de pesquisa.
+   * @returns Um Observable com os resultados da pesquisa.
+   */
   searchTeams(teamId: string, filter?: FilterListTeamDto): Observable&lt;any&gt; {
     let params &#x3D; new HttpParams();
 
@@ -685,8 +790,7 @@ export class TeamService {
 
     return this.http.get(&#x60;${this.baseUrl}/${teamId}/search&#x60;, { params });
   }
-}
-</code></pre>
+}</code></pre>
     </div>
 
 </div>

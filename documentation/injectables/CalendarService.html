@@ -205,7 +205,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/calendar.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/calendar.service.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -261,15 +261,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>cancelMatch(idTeam: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idMatch: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>cancelMatch(idTeam: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idMatch: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, motivo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="51"
-                                    class="link-to-prism">src/app/services/calendar.service.ts:51</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/services/calendar.service.ts:74</a></div>
                         </td>
                     </tr>
 
@@ -324,6 +324,20 @@
 
                                             </td>
                                         </tr>
+                                        <tr>
+                                                <td>motivo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -359,8 +373,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">src/app/services/calendar.service.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/services/calendar.service.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -443,22 +457,22 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getMatchesForTeam(idTeam: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getMatchesForTeam(idTeam: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, filterDto: <a href="../classes/FilterCalendarDto.html" target="_self">FilterCalendarDto</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="21"
-                                    class="link-to-prism">src/app/services/calendar.service.ts:21</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="23"
+                                    class="link-to-prism">src/app/services/calendar.service.ts:23</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Obtém os jogos para a equipa atual.</p>
+                        <div class="io-description"><p>Obtém os jogos para a equipa atual com filtros aplicados.</p>
 </div>
 
                             <div class="io-description">
@@ -487,6 +501,22 @@
 
                                             <td>
                                                     <p>ID da equipa.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>filterDto</td>
+                                            <td>
+                                                            <code><a href="../classes/FilterCalendarDto.html" target="_self" >FilterCalendarDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>DTO com os filtros aplicados.</p>
 
                                             </td>
                                         </tr>
@@ -525,8 +555,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="41"
-                                    class="link-to-prism">src/app/services/calendar.service.ts:41</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/services/calendar.service.ts:64</a></div>
                         </td>
                     </tr>
 
@@ -628,7 +658,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/calendar.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/calendar.service.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -642,27 +672,50 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { HttpClient, HttpHeaders, HttpParams } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { CalendarDto } from &#x27;../shared/Dtos/Calendar/CalendarDto&#x27;;
-import { MatchDto } from &#x27;../shared/Dtos/Match/MatchDto&#x27;;
 import { environment } from &#x27;../environments/environment&#x27;;
+import { FilterCalendarDto } from &#x27;../shared/Dtos/Filters/FilterCalendarDto&#x27;;
+import { MatchDto } from &#x27;../shared/Dtos/Match/MatchDto&#x27;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class CalendarService {
   private readonly baseUrl &#x3D; &#x60;${environment.apiBaseUrl}/Calendar&#x60;;
 
   constructor(private http: HttpClient) {}
 
-   /**
-   * Obtém os jogos para a equipa atual.
+  /**
+   * Obtém os jogos para a equipa atual com filtros aplicados.
    * @param idTeam ID da equipa.
+   * @param filterDto DTO com os filtros aplicados.
    * @returns Um Observable com a lista de partidas formatada.
    */
-  getMatchesForTeam(idTeam: string): Observable&lt;CalendarDto[]&gt; {
-    return this.http.get&lt;CalendarDto[]&gt;(&#x60;${this.baseUrl}/${idTeam}&#x60;);
+  getMatchesForTeam(idTeam: string, filterDto: FilterCalendarDto): Observable&lt;CalendarDto[]&gt; {
+    let params &#x3D; new HttpParams();
+
+    if (filterDto.isRealized !&#x3D;&#x3D; undefined) {
+      params &#x3D; params.set(&#x27;IsRealized&#x27;, filterDto.isRealized.toString());
+    }
+    if (filterDto.isRanked !&#x3D;&#x3D; undefined) {
+      params &#x3D; params.set(&#x27;IsRanked&#x27;, filterDto.isRanked.toString());
+    }
+    if (filterDto.isHome !&#x3D;&#x3D; undefined) {
+      params &#x3D; params.set(&#x27;IsHome&#x27;, filterDto.isHome.toString());
+    }
+    if (filterDto.minDate) {
+      params &#x3D; params.set(&#x27;MinDate&#x27;, filterDto.minDate);
+    }
+    if (filterDto.maxDate) {
+      params &#x3D; params.set(&#x27;MaxDate&#x27;, filterDto.maxDate);
+    }
+    if (filterDto.nameOpponent) {
+      params &#x3D; params.set(&#x27;NameOpponent&#x27;, filterDto.nameOpponent);
+    }
+
+    return this.http.get&lt;CalendarDto[]&gt;(&#x60;${this.baseUrl}/${idTeam}&#x60;, { params });
   }
 
   /**
@@ -691,8 +744,14 @@ export class CalendarService {
    * @param idMatch ID da partida.
    * @returns Um Observable com a resposta da operação.
    */
-  cancelMatch(idTeam: string, idMatch: string): Observable&lt;any&gt; {
-    return this.http.delete&lt;any&gt;(&#x60;${this.baseUrl}/${idTeam}/CancelMatch/${idMatch}&#x60;);
+  cancelMatch(idTeam: string, idMatch: string, motivo: string): Observable&lt;any&gt; {
+    const body &#x3D; JSON.stringify(motivo);
+    return this.http.delete&lt;any&gt;(&#x60;${this.baseUrl}/${idTeam}/CancelMatch/${idMatch}&#x60;, {
+      headers: new HttpHeaders({
+        &#x27;Content-Type&#x27;: &#x27;application/json&#x27;
+      }),
+      body: body
+    });
   }
 }</code></pre>
     </div>

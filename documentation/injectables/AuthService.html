@@ -212,6 +212,9 @@ Realiza login, registo, decodificação de token, verificação de permissões, 
                                 <a href="#isAuthenticated" >isAuthenticated</a>
                             </li>
                             <li>
+                                <a href="#isMember" >isMember</a>
+                            </li>
+                            <li>
                                 <a href="#login" >login</a>
                             </li>
                             <li>
@@ -341,8 +344,8 @@ Realiza login, registo, decodificação de token, verificação de permissões, 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="152"
-                                    class="link-to-prism">src/app/services/auth.service.ts:152</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="163"
+                                    class="link-to-prism">src/app/services/auth.service.ts:163</a></div>
                         </td>
                     </tr>
 
@@ -384,8 +387,8 @@ Realiza login, registo, decodificação de token, verificação de permissões, 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="144"
-                                    class="link-to-prism">src/app/services/auth.service.ts:144</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="155"
+                                    class="link-to-prism">src/app/services/auth.service.ts:155</a></div>
                         </td>
                     </tr>
 
@@ -502,8 +505,8 @@ Realiza login, registo, decodificação de token, verificação de permissões, 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="80"
-                                    class="link-to-prism">src/app/services/auth.service.ts:80</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/services/auth.service.ts:87</a></div>
                         </td>
                     </tr>
 
@@ -615,6 +618,49 @@ Realiza login, registo, decodificação de token, verificação de permissões, 
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="isMember"></a>
+                    <span class="name">
+                        <span ><b>isMember</b></span>
+                        <a href="#isMember"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isMember()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">src/app/services/auth.service.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verifica se o utilizador tem permissões de administrador.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p><code>true</code> se o utilizador for administrador, caso contrário <code>false</code>.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="login"></a>
                     <span class="name">
                         <span ><b>login</b></span>
@@ -631,8 +677,8 @@ Realiza login, registo, decodificação de token, verificação de permissões, 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="92"
-                                    class="link-to-prism">src/app/services/auth.service.ts:92</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/services/auth.service.ts:98</a></div>
                         </td>
                     </tr>
 
@@ -723,8 +769,8 @@ Se o login for bem-sucedido, os cookies de acesso e ID do utilizador são config
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="115"
-                                    class="link-to-prism">src/app/services/auth.service.ts:115</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/app/services/auth.service.ts:126</a></div>
                         </td>
                     </tr>
 
@@ -1089,8 +1135,15 @@ export class AuthService {
    * @returns &#x60;true&#x60; se o utilizador for administrador, caso contrário &#x60;false&#x60;.
    */
   isAdmin(): boolean {
-    const decodedToken &#x3D; this.decodeToken();
-    return decodedToken?.isAdmin || false;
+    return this.cookieService.get(&#x27;is_admin&#x27;) &#x3D;&#x3D;&#x3D; &#x27;true&#x27;;
+  }
+
+  /**
+   * Verifica se o utilizador tem permissões de administrador.
+   * @returns &#x60;true&#x60; se o utilizador for administrador, caso contrário &#x60;false&#x60;.
+   */
+  isMember(): boolean {
+    return this.hasTeam() &amp;&amp; this.cookieService.get(&#x27;is_admin&#x27;) &#x3D;&#x3D;&#x3D; &#x27;false&#x27;;
   }
 
   /**
@@ -1098,8 +1151,7 @@ export class AuthService {
    * @returns &#x60;true&#x60; se o utilizador tiver uma equipa associada, caso contrário &#x60;false&#x60;.
    */
   hasTeam(): boolean {
-    const decodedToken &#x3D; this.decodeToken();
-    return decodedToken?.idTeam !&#x3D; null;
+    return this.getCurrentTeamId !&#x3D; null
   }
 
   /**
@@ -1112,9 +1164,14 @@ export class AuthService {
   login(email: string, password: string): Observable&lt;any&gt; {
     return this.http.post(&#x60;${this.baseUrl}/User/login&#x60;, { email, password }).pipe(
       map((response: any) &#x3D;&gt; {
-        this.cookieService.set(&#x27;access_token&#x27;, response?.firebaseLoginResponseDto?.idToken, 7, &#x27;/&#x27;);
-        this.cookieService.set(&#x27;user_id&#x27;, response?.firebaseLoginResponseDto?.localId, 7, &#x27;/&#x27;);
-        
+        const idToken &#x3D; response?.firebaseLoginResponseDto?.idToken;
+        const localId &#x3D; response?.firebaseLoginResponseDto?.localId;
+        const isAdmin &#x3D; response?.isAdmin; 
+
+        this.cookieService.set(&#x27;access_token&#x27;, idToken, 7, &#x27;/&#x27;);
+        this.cookieService.set(&#x27;user_id&#x27;, localId, 7, &#x27;/&#x27;);
+        this.cookieService.set(&#x27;is_admin&#x27;, String(isAdmin), 7, &#x27;/players/details&#x27;);  
+
         return response;
       })
     );
@@ -1166,17 +1223,21 @@ export class AuthService {
   }
 
   /**
-   * Obtém o ID da equipa do jogador atual.
-   * @returns Um Observable com o ID da equipa do jogador ou &#x60;null&#x60; se não houver equipa associada.
-   */
+  * Obtém o ID da equipa do jogador atual.
+  * @returns Um Observable com o ID da equipa do jogador ou &#x60;null&#x60; se não houver equipa associada.
+  */
   getCurrentTeamId(): Observable&lt;string | null&gt; {
     const playerId &#x3D; this.getCurrentPlayerId();
     if (!playerId) {
-      return of(null);
+      return of(null); 
     }
 
     return this.getPlayerData(playerId).pipe(
-      map(playerData &#x3D;&gt; playerData?.team?.idTeam ?? null)
+      map(playerData &#x3D;&gt; playerData?.team?.idTeam ?? null), 
+      catchError((error) &#x3D;&gt; {
+        console.error(&#x27;Erro ao buscar dados do jogador:&#x27;, error);
+        return of(null); 
+      })
     );
   }
 }</code></pre>

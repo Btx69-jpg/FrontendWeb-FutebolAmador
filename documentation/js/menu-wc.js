@@ -60,19 +60,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/App.html" data-type="entity-link" >App</a>
                             </li>
                             <li class="link">
-                                <a href="components/AuthHeader.html" data-type="entity-link" >AuthHeader</a>
-                            </li>
-                            <li class="link">
                                 <a href="components/CalendarComponent.html" data-type="entity-link" >CalendarComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/CancelMatchComponent.html" data-type="entity-link" >CancelMatchComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/CreateMatchInvite.html" data-type="entity-link" >CreateMatchInvite</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/CreateTeam.html" data-type="entity-link" >CreateTeam</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/Footer.html" data-type="entity-link" >Footer</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/Header.html" data-type="entity-link" >Header</a>
                             </li>
                             <li class="link">
                                 <a href="components/Home.html" data-type="entity-link" >Home</a>
@@ -139,13 +136,25 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CalendarDto.html" data-type="entity-link" >CalendarDto</a>
                             </li>
                             <li class="link">
+                                <a href="classes/CancelMatchDto.html" data-type="entity-link" >CancelMatchDto</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/CreateTeamDto.html" data-type="entity-link" >CreateTeamDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FilterCalendarDto.html" data-type="entity-link" >FilterCalendarDto</a>
                             </li>
                             <li class="link">
                                 <a href="classes/FilterListTeamDto.html" data-type="entity-link" >FilterListTeamDto</a>
                             </li>
                             <li class="link">
+                                <a href="classes/FilterMatchInviteDto.html" data-type="entity-link" >FilterMatchInviteDto</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/FilterMembershipRequestsPlayer.html" data-type="entity-link" >FilterMembershipRequestsPlayer</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/InfoMatchInviteDto.html" data-type="entity-link" >InfoMatchInviteDto</a>
                             </li>
                             <li class="link">
                                 <a href="classes/InfoRankDto.html" data-type="entity-link" >InfoRankDto</a>
@@ -169,7 +178,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/PlayerDetailsDto.html" data-type="entity-link" >PlayerDetailsDto</a>
                             </li>
                             <li class="link">
+                                <a href="classes/PlayerDto.html" data-type="entity-link" >PlayerDto</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/PlayerFilterDto.html" data-type="entity-link" >PlayerFilterDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/PlayerTeamDto.html" data-type="entity-link" >PlayerTeamDto</a>
                             </li>
                             <li class="link">
                                 <a href="classes/PostponeMatchDto.html" data-type="entity-link" >PostponeMatchDto</a>
@@ -179,6 +194,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/TeamDetailsDto.html" data-type="entity-link" >TeamDetailsDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TeamDto.html" data-type="entity-link" >TeamDto</a>
                             </li>
                             <li class="link">
                                 <a href="classes/UpdateTeamDto.html" data-type="entity-link" >UpdateTeamDto</a>

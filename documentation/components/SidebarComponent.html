@@ -482,31 +482,31 @@ export class SidebarComponent {
   &lt;/div&gt;
 
   &lt;nav class&#x3D;&quot;sidebar__nav&quot;&gt;
-    &lt;a *ngIf&#x3D;&quot;isAuthenticated&quot; routerLink&#x3D;&quot;/players&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
+    &lt;a *ngIf&#x3D;&quot;isAuthenticated &amp;&amp; isAdmin&quot; routerLink&#x3D;&quot;/players&quot; routerLinkActive&#x3D;&quot;active&quot; [routerLinkActiveOptions]&#x3D;&quot;{ exact: true }&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
       Jogadores
     &lt;/a&gt;
 
-    &lt;a *ngIf&#x3D;&quot;isAuthenticated&quot; routerLink&#x3D;&quot;/teams&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
+    &lt;a *ngIf&#x3D;&quot;isAuthenticated&quot; routerLink&#x3D;&quot;/teams&quot; routerLinkActive&#x3D;&quot;active&quot; [routerLinkActiveOptions]&#x3D;&quot;{ exact: true }&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
       Equipas
     &lt;/a&gt;
 
-    &lt;a *ngIf&#x3D;&quot;isAuthenticated&quot; routerLink&#x3D;&quot;/players/me&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
+    &lt;a *ngIf&#x3D;&quot;isAuthenticated&quot; routerLink&#x3D;&quot;/players/me&quot; routerLinkActive&#x3D;&quot;active&quot; [routerLinkActiveOptions]&#x3D;&quot;{ exact: true }&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
       O meu perfil
     &lt;/a&gt;
 
-    &lt;a routerLink&#x3D;&quot;/settings&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
+    &lt;a routerLink&#x3D;&quot;/settings&quot; routerLinkActive&#x3D;&quot;active&quot; [routerLinkActiveOptions]&#x3D;&quot;{ exact: true }&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
       Definições
     &lt;/a&gt;
 
-    &lt;a *ngIf&#x3D;&quot;!isAuthenticated&quot; routerLink&#x3D;&quot;/signup&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
+    &lt;a *ngIf&#x3D;&quot;!isAuthenticated&quot; routerLink&#x3D;&quot;/signup&quot; routerLinkActive&#x3D;&quot;active&quot; [routerLinkActiveOptions]&#x3D;&quot;{ exact: true }&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
       Criar Conta
     &lt;/a&gt;
 
-    &lt;a *ngIf&#x3D;&quot;!isAuthenticated&quot; routerLink&#x3D;&quot;/login&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
+    &lt;a *ngIf&#x3D;&quot;!isAuthenticated&quot; routerLink&#x3D;&quot;/login&quot; routerLinkActive&#x3D;&quot;active&quot; [routerLinkActiveOptions]&#x3D;&quot;{ exact: true }&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
       Login
     &lt;/a&gt;
 
-    &lt;a *ngIf&#x3D;&quot;isAuthenticated&quot; routerLink&#x3D;&quot;/logout&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
+    &lt;a *ngIf&#x3D;&quot;isAuthenticated&quot; routerLink&#x3D;&quot;/logout&quot; routerLinkActive&#x3D;&quot;active&quot; [routerLinkActiveOptions]&#x3D;&quot;{ exact: true }&quot; class&#x3D;&quot;sidebar__link&quot;&gt;
       Logout
     &lt;/a&gt;
   &lt;/nav&gt;
@@ -594,8 +594,8 @@ export class SidebarComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><aside class="sidebar">  <div class="sidebar__brand">    <a routerLink="/">      <img src="assets/football.ico" alt="Logo" class="sidebar__logo" />      <span class="sidebar__title">Futebol Amador</span>    </a>  </div>  <nav class="sidebar__nav">    <a *ngIf="isAuthenticated" routerLink="/players" routerLinkActive="active" class="sidebar__link">      Jogadores    </a>    <a *ngIf="isAuthenticated" routerLink="/teams" routerLinkActive="active" class="sidebar__link">      Equipas    </a>    <a *ngIf="isAuthenticated" routerLink="/players/me" routerLinkActive="active" class="sidebar__link">      O meu perfil    </a>    <a routerLink="/settings" routerLinkActive="active" class="sidebar__link">      Definições    </a>    <a *ngIf="!isAuthenticated" routerLink="/signup" routerLinkActive="active" class="sidebar__link">      Criar Conta    </a>    <a *ngIf="!isAuthenticated" routerLink="/login" routerLinkActive="active" class="sidebar__link">      Login    </a>    <a *ngIf="isAuthenticated" routerLink="/logout" routerLinkActive="active" class="sidebar__link">      Logout    </a>  </nav></aside></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+        var COMPONENT_TEMPLATE = '<div><aside class="sidebar">  <div class="sidebar__brand">    <a routerLink="/">      <img src="assets/football.ico" alt="Logo" class="sidebar__logo" />      <span class="sidebar__title">Futebol Amador</span>    </a>  </div>  <nav class="sidebar__nav">    <a *ngIf="isAuthenticated && isAdmin" routerLink="/players" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="sidebar__link">      Jogadores    </a>    <a *ngIf="isAuthenticated" routerLink="/teams" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="sidebar__link">      Equipas    </a>    <a *ngIf="isAuthenticated" routerLink="/players/me" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="sidebar__link">      O meu perfil    </a>    <a routerLink="/settings" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="sidebar__link">      Definições    </a>    <a *ngIf="!isAuthenticated" routerLink="/signup" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="sidebar__link">      Criar Conta    </a>    <a *ngIf="!isAuthenticated" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="sidebar__link">      Login    </a>    <a *ngIf="isAuthenticated" routerLink="/logout" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="sidebar__link">      Logout    </a>  </nav></aside></div>'
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CancelMatchComponent', 'selector': 'app-cancel-match'},{'name': 'CreateMatchInvite', 'selector': 'app-create-match-invite'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SidebarComponent'};
 </script>

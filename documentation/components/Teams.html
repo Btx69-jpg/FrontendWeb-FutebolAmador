@@ -143,6 +143,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente responsável pela página de listagem de equipas.
+Permite visualizar a equipa do jogador atual ou pesquisar outras equipas disponíveis.</p>
+
+    </p>
 
 
 
@@ -286,7 +294,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/pages/teams/teams.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/pages/teams/teams.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -401,14 +409,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="96"
-                                    class="link-to-prism">src/app/components/pages/teams/teams.ts:96</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/components/pages/teams/teams.ts:116</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Aplica um novo filtro de pesquisa e recarrega a lista de equipas.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -419,6 +429,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -433,6 +444,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O DTO contendo os novos critérios de filtro.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -468,14 +483,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="101"
-                                    class="link-to-prism">src/app/components/pages/teams/teams.ts:101</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/components/pages/teams/teams.ts:124</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Navega para a página de criação de uma nova equipa.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -505,14 +522,18 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="60"
-                                    class="link-to-prism">src/app/components/pages/teams/teams.ts:60</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/components/pages/teams/teams.ts:76</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Carrega a lista de equipas.
+Se o jogador já tiver equipa, carrega equipas sugeridas ou relacionadas.
+Caso contrário, utiliza os filtros definidos para pesquisar equipas no sistema.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -542,14 +563,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="40"
-                                    class="link-to-prism">src/app/components/pages/teams/teams.ts:40</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/components/pages/teams/teams.ts:51</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Inicializa o componente.
+Carrega o perfil do jogador e subscreve aos parâmetros de query da URL para aplicar filtros de pesquisa automaticamente.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -589,7 +613,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/pages/teams/teams.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/pages/teams/teams.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -620,7 +644,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/pages/teams/teams.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/pages/teams/teams.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -653,10 +677,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/pages/teams/teams.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/pages/teams/teams.ts:45</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Propriedade computada que verifica se o jogador logado possui uma equipa.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -684,7 +714,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/pages/teams/teams.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/pages/teams/teams.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -715,7 +745,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/pages/teams/teams.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/pages/teams/teams.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -746,7 +776,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/pages/teams/teams.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/pages/teams/teams.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -777,7 +807,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/pages/teams/teams.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/pages/teams/teams.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -808,7 +838,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/pages/teams/teams.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/pages/teams/teams.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -833,6 +863,10 @@ import { AuthService } from &#x27;../../../services/auth.service&#x27;;
 import { PlayerDetails } from &#x27;../../../shared/Dtos/player.model&#x27;;
 import { TeamService } from &#x27;../../../services/team.service&#x27;;
 
+/**
+ * Componente responsável pela página de listagem de equipas.
+ * Permite visualizar a equipa do jogador atual ou pesquisar outras equipas disponíveis.
+ */
 @Component({
   selector: &#x27;app-teams&#x27;,
   imports: [SearchTeam, CommonModule, RouterLink],
@@ -858,8 +892,15 @@ export class Teams {
     private membershipRequestService: MembershipRequestService
   ) {}
 
+  /**
+   * Propriedade computada que verifica se o jogador logado possui uma equipa.
+   */
   protected readonly hasTeam &#x3D; computed(() &#x3D;&gt; !!this.player()?.team?.idTeam);
 
+  /**
+   * Inicializa o componente.
+   * Carrega o perfil do jogador e subscreve aos parâmetros de query da URL para aplicar filtros de pesquisa automaticamente.
+   */
   ngOnInit() {
     this.playerService.getMyProfile().subscribe({
       next: (player) &#x3D;&gt; {
@@ -880,6 +921,11 @@ export class Teams {
     });
   }
 
+  /**
+   * Carrega a lista de equipas.
+   * Se o jogador já tiver equipa, carrega equipas sugeridas ou relacionadas.
+   * Caso contrário, utiliza os filtros definidos para pesquisar equipas no sistema.
+   */
   loadTeams() {
     this.isLoading.set(true);
     this.errorMessage.set(null);
@@ -916,16 +962,22 @@ export class Teams {
     }
   }
 
+  /**
+   * Aplica um novo filtro de pesquisa e recarrega a lista de equipas.
+   * @param newFilter O DTO contendo os novos critérios de filtro.
+   */
   applyFilter(newFilter: FilterListTeamDto) {
     this.filter.set(newFilter);
     this.loadTeams();
   }
 
+  /**
+   * Navega para a página de criação de uma nova equipa.
+   */
   goToCreateTeam() {
     this.router.navigate([&#x27;/createTeam&#x27;]);
   }
-}
-</code></pre>
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
@@ -996,7 +1048,7 @@ export class Teams {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><!-- <app-auth-header></app-auth-header> --><app-search-team></app-search-team><div class="container container-button" *ngIf="!hasTeam()">    <button class="btn btn-primary" (click)="goToCreateTeam()">        Crie sua Própria Equipa!    </button></div><div class="row">    <div class="small-container" *ngFor="let team of teams()">        <a routerLink="/team/details/{{team.id}}">            <img height="200" width="200" src="../../../../assets/placeholder.png" />            <div class="name">                {{team.name}}            </div>            <div class="rank">                Rank: {{team.rank.name}}            </div>            <div class="city">                Address: {{team.address}}            </div>            <div class="points">                Points: {{team.currentPoints}}            </div>            <div class="averageAge">                Average Age: {{math.trunc(team.averageAge)}}            </div>            <div class="playerCount">                Players: {{team.playerCount}}            </div>        </a>    </div></div></div>'
-    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'AuthHeader', 'selector': 'app-auth-header'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Header', 'selector': 'app-header'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'CancelMatchComponent', 'selector': 'app-cancel-match'},{'name': 'CreateMatchInvite', 'selector': 'app-create-match-invite'},{'name': 'CreateTeam', 'selector': 'app-create-team'},{'name': 'Home', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MatchInvites', 'selector': 'app-match-invites'},{'name': 'PlayerListPageComponent', 'selector': 'app-player-list-page'},{'name': 'PlayerMembershipRequestsPageComponent', 'selector': 'app-player-membership-requests-page'},{'name': 'PlayerProfilePageComponent', 'selector': 'app-player-profile-page'},{'name': 'PlayerProfileRedirectComponent', 'selector': 'app-player-profile-redirect'},{'name': 'PostponeMatchComponent', 'selector': 'app-postpone-match'},{'name': 'SearchTeam', 'selector': 'app-search-team'},{'name': 'SettingsPageComponent', 'selector': 'app-settings-page'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'TeamMembershipRequestsPageComponent', 'selector': 'app-team-membership-requests-page'},{'name': 'TeamMembersPageComponent', 'selector': 'app-team-members-page'},{'name': 'TeamProfile', 'selector': 'app-team-profile'},{'name': 'Teams', 'selector': 'app-teams'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'Teams'};
 </script>

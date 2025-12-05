@@ -138,6 +138,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Serviço responsável pela gestão dos membros de uma equipa.
+Permite listar membros com filtros, remover jogadores e gerir permissões (promover/despromover).</p>
+
+            </p>
 
 
 
@@ -225,14 +233,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="41"
-                                    class="link-to-prism">src/app/services/team-members.service.ts:41</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/app/services/team-members.service.ts:82</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Despromove um administrador da equipa para membro normal.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -243,6 +253,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -257,6 +268,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID da equipa.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>adminId</td>
@@ -269,6 +284,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID do administrador a ser despromovido.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -278,7 +297,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable vazio (<code>void</code>) indicando a conclusão da operação.</p>
+
                             </div>
                 </td>
             </tr>
@@ -304,14 +324,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="19"
-                                    class="link-to-prism">src/app/services/team-members.service.ts:19</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/app/services/team-members.service.ts:42</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Obtém a lista de membros de uma equipa, permitindo filtrar por nome ou cargo.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -323,6 +345,7 @@
                                                 <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Default value</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -339,6 +362,10 @@
                                             <td>
                                             </td>
 
+                                            <td>
+                                                    <p>O ID da equipa.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>filters</td>
@@ -354,16 +381,21 @@
                                                     <code>{}</code>
                                             </td>
 
+                                            <td>
+                                                    <p>Objeto contendo os critérios de filtragem (isAdmin, name).</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../interfaces/TeamMember.html" target="_self" >Observable&lt;TeamMember[]&gt;</a></code>
+                            <b>Returns : </b>    <code>Observable&lt;PlayerTeamDto[]&gt;</code>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable com a lista de membros (<code>PlayerTeamDto[]</code>).</p>
+
                             </div>
                 </td>
             </tr>
@@ -389,14 +421,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="37"
-                                    class="link-to-prism">src/app/services/team-members.service.ts:37</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/services/team-members.service.ts:72</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Promove um membro da equipa a administrador.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -407,6 +441,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -421,6 +456,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID da equipa.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>playerId</td>
@@ -433,6 +472,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID do jogador a ser promovido.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -442,7 +485,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable vazio (<code>void</code>) indicando a conclusão da operação.</p>
+
                             </div>
                 </td>
             </tr>
@@ -468,14 +512,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">src/app/services/team-members.service.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/services/team-members.service.ts:62</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Remove um membro específico da equipa.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -486,6 +532,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -500,6 +547,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID da equipa.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>playerId</td>
@@ -512,6 +563,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>O ID do jogador a ser removido.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -521,7 +576,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Um Observable vazio (<code>void</code>) indicando a conclusão da operação.</p>
+
                             </div>
                 </td>
             </tr>
@@ -559,10 +615,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/team-members.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/services/team-members.service.ts:34</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL base da API para as operações relacionadas com equipas.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -592,10 +654,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/team-members.service.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/services/team-members.service.ts:29</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Serviço HTTP utilizado para realizar requisições à API.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -609,21 +677,44 @@
 import { HttpClient, HttpParams } from &#x27;@angular/common/http&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { environment } from &#x27;../environments/environment&#x27;;
-import { TeamMember } from &#x27;../shared/Dtos/team-member.model&#x27;;
+import { PlayerTeamDto } from &#x27;../shared/Dtos/Player/PlayerTeamDto&#x27;;
 
+/**
+ * Interface que define os filtros disponíveis para a listagem de membros de uma equipa.
+ */
 export interface TeamMembersFilters {
+  /** Filtra por estatuto de administrador (true para admins, false para membros normais). */
   isAdmin?: boolean;
+  /** Filtra pelo nome do membro. */
   name?: string;
 }
 
+/**
+ * Serviço responsável pela gestão dos membros de uma equipa.
+ * Permite listar membros com filtros, remover jogadores e gerir permissões (promover/despromover).
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class TeamMembersService {
+  
+  /**
+   * Serviço HTTP utilizado para realizar requisições à API.
+   */
   private readonly http &#x3D; inject(HttpClient);
+
+  /**
+   * URL base da API para as operações relacionadas com equipas.
+   */
   private readonly baseUrl &#x3D; &#x60;${environment.apiBaseUrl}/Team&#x60;;
 
-  getTeamMembers(teamId: string, filters: TeamMembersFilters &#x3D; {}): Observable&lt;TeamMember[]&gt; {
+  /**
+   * Obtém a lista de membros de uma equipa, permitindo filtrar por nome ou cargo.
+   * @param teamId O ID da equipa.
+   * @param filters Objeto contendo os critérios de filtragem (isAdmin, name).
+   * @returns Um Observable com a lista de membros (&#x60;PlayerTeamDto[]&#x60;).
+   */
+  getTeamMembers(teamId: string, filters: TeamMembersFilters &#x3D; {}): Observable&lt;PlayerTeamDto[]&gt; {
     let params &#x3D; new HttpParams();
 
     if (filters.isAdmin !&#x3D;&#x3D; undefined) {
@@ -634,17 +725,35 @@ export class TeamMembersService {
       params &#x3D; params.set(&#x27;Name&#x27;, filters.name.trim());
     }
 
-    return this.http.get&lt;TeamMember[]&gt;(&#x60;${this.baseUrl}/${teamId}/members&#x60;, { params });
+    return this.http.get&lt;PlayerTeamDto[]&gt;(&#x60;${this.baseUrl}/${teamId}/members&#x60;, { params });
   }
 
+  /**
+   * Remove um membro específico da equipa.
+   * @param teamId O ID da equipa.
+   * @param playerId O ID do jogador a ser removido.
+   * @returns Um Observable vazio (&#x60;void&#x60;) indicando a conclusão da operação.
+   */
   removeMember(teamId: string, playerId: string): Observable&lt;void&gt; {
     return this.http.delete&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}/members/${playerId}&#x60;);
   }
 
+  /**
+   * Promove um membro da equipa a administrador.
+   * @param teamId O ID da equipa.
+   * @param playerId O ID do jogador a ser promovido.
+   * @returns Um Observable vazio (&#x60;void&#x60;) indicando a conclusão da operação.
+   */
   promoteMember(teamId: string, playerId: string): Observable&lt;void&gt; {
     return this.http.put&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}/members/promote/${playerId}&#x60;, {}, {responseType: &#x27;text&#x27; as &#x27;json&#x27;});
   }
 
+  /**
+   * Despromove um administrador da equipa para membro normal.
+   * @param teamId O ID da equipa.
+   * @param adminId O ID do administrador a ser despromovido.
+   * @returns Um Observable vazio (&#x60;void&#x60;) indicando a conclusão da operação.
+   */
   demoteAdmin(teamId: string, adminId: string): Observable&lt;void&gt; {
     return this.http.put&lt;void&gt;(&#x60;${this.baseUrl}/${teamId}/members/demote/${adminId}&#x60;, {}, {responseType: &#x27;text&#x27; as &#x27;json&#x27;});
   }
